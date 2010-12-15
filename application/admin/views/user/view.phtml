@@ -1,0 +1,158 @@
+<h3><?php echo $this->_('Doctor Panel'); ?></h3>
+
+<form class="form" action="#" >
+
+<p>
+	<label><?php echo $this->_('Email'); ?></label>
+	<?php echo $this->doctor['email']?>
+</p>
+
+<p>
+	<label for="name"><?php echo $this->_("Role")?>:</label>
+			<?php 
+			if(  $this->doctor['status'] == Mun::PLUS_DOCTOR ):
+				echo $this->_("Plus Doctor");
+			elseif(  $this->doctor['status'] == Mun::REGULAR_DOCTOR  ):
+				echo $this->_("Regular Doctor");
+			elseif(  $this->doctor['status'] == Mun::ADMIN  ):
+				echo $this->_("Admin");
+			elseif( $this->doctor['process'] == Mun_Doctor::PROCESS_REJECTED  ):
+				echo $this->_("Rejected");
+			else:
+				echo $this->_("Disapproved");
+			endif;
+			?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Name'); ?></label>
+	<?php echo $this->doctor['name']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Occupation'); ?></label>
+	<?php echo $this->doctor['occupation']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Place Of Work'); ?></label>
+	<?php echo $this->doctor['place_of_work']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Comments'); ?></label>
+	<?php echo $this->doctor['comments']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Create Time'); ?></label>
+	<?php echo date('Y-m-d' , $this->doctor['date_add']); ?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Action'); ?></label>
+	<?php if( $this->doctor['process'] == Mun_Doctor::PROCESS_WAITING ): ?>
+		<a href="javascript:void(0);" onclick="reject(<?php echo $this->doctor['id']?>);"><?php echo $this->translate->_('Reject');?></a> |
+		<a href="javascript:void(0);" onclick="verify(<?php echo $this->doctor['id']?> , <?php echo Mun::ADMIN?>);"><?php echo $this->translate->_('Verify Admin');?></a> | 
+		<a href="javascript:void(0);" onclick="verify(<?php echo $this->doctor['id']?> , <?php echo Mun::REGULAR_DOCTOR?>);"><?php echo $this->translate->_('Verify Regular');?></a> | 
+		<a href="javascript:void(0);" onclick="verify(<?php echo $this->doctor['id']?> , <?php echo Mun::PLUS_DOCTOR?>);"><?php echo $this->translate->_('Verify Plus');?></a> 
+	<?php endif;?>
+	<?php if( $this->doctor['process'] == Mun_Doctor::PROCESS_VERIFIED ):?>
+			<a href="javascript:void(0);" onclick="reject(<?php echo $this->doctor['id']?>);"><?php echo $this->translate->_('Reject');?></a>  | 
+			<?php if( $this->doctor['status'] != Mun::ADMIN ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $this->doctor['id']?> , <?php echo Mun::ADMIN?>);" ><?php echo $this->translate->_('To Admin');?></a> |
+			<?php endif;?>
+			<?php if( $this->doctor['status'] != Mun::REGULAR_DOCTOR && $this->doctor['email'] != Mun::GetInstance()->config->doctor->default_admin->username ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $this->doctor['id']?> , <?php echo Mun::REGULAR_DOCTOR?>);"><?php echo $this->translate->_('To Regular');?></a> |
+			<?php endif;?>
+			<?php if( $this->doctor['status'] != Mun::PLUS_DOCTOR && $this->doctor['email'] != Mun::GetInstance()->config->doctor->default_admin->username ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $this->doctor['id']?> , <?php echo Mun::PLUS_DOCTOR?>);"><?php echo $this->translate->_('To Plus');?></a> 
+			<?php endif;?>
+	<?php endif?>
+	
+	<?php if( $this->doctor['process']  == Mun_Doctor::PROCESS_REJECTED ):?>
+		
+			<a href="javascript:void(0);" onclick="change_to_normal(<?php echo $this->doctor['id']?>);"><?php echo $this->translate->_('Enable');?></a> 
+		
+	<?php endif;?>
+</p>
+
+<?php if( $this->doctor['process'] == Mun_Doctor::PROCESS_VERIFIED ):?>
+
+<?php if( count($this->comments) != 0 ):?>
+
+<p style="margin-top:30px;">
+	<label><?php echo $this->_('News Comments'); ?></label>
+</p>
+
+<?php foreach( $this->comments as $comment ): ?>
+	
+	<p style="font-weight:bold;font-size:10px;">
+	<label><a href="<?php echo $this->url(array('action' => 'view' , 'controller' => 'news'  , 'id' =>$comment['news'] ), null, true);?>" target="_blank"><?php echo $comment['content'] ?></a></label>
+	</p>
+	
+<?php endforeach;?>
+
+<?php endif;?>
+
+<?php if( count($this->files) != 0 ):?>
+
+<p  style="margin-top:30px;">
+	<label><?php echo $this->_('Upload Files'); ?></label>
+</p>
+
+<?php foreach( $this->files as $file ): ?>
+	
+	<p style="font-weight:bold;font-size:10px;">
+	<label><a href="<?php echo $this->url(array('action' => 'download' , 'controller' => 'file' , "id" => $file['id']  ), 'default', true);?>"><?php echo $file['title'] ?></a></label>
+	</p>
+	
+<?php endforeach;?>
+
+<?php endif;?>
+
+<?php endif;?>
+
+
+
+
+</form>
+
+
+<script>
+
+	function reject( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to reject this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/doctor/postreject/id/" + id;
+		}
+	}
+
+	function verify( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to approve this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/doctor/postverify/id/" + id + "/status/" + status;
+		}
+	}
+
+	function change_role( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to change user's role? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/doctor/postchangerole/id/" + id + "/status/" + status;
+		}
+	}
+
+
+	function create(){
+		location.href = '<?php echo $this->url(array('action' => 'create' , 'controller' => 'location' , 'module' => 'admin'), null, true);?>';
+	}
+
+	function change_to_normal( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to enable this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/doctor/postrejecttonormal/id/" + id ;
+		}
+	}
+</script>
+
+

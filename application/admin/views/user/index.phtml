@@ -1,0 +1,148 @@
+<h3><?php echo $this->_('User Panel'); ?></h3>
+<br/><br/>
+
+
+<!-- view type -->
+
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'type' => Narrow_User::STATUS_WAITING ), null, true);?>" title="all" 
+<?php if( $this->type != null && intval( $this->type )  === Narrow_User::STATUS_WAITING ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_('User waitting for process'); ?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'type' => Narrow_User::STATUS_APPROVAL ), null, true);?>" title="all" 
+<?php if( intval( $this->type )  === Narrow_User::STATUS_APPROVAL ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Approved")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'type' => Narrow_User::STATUS_REJECTED ), null, true);?>" title="all" 
+<?php if( intval( $this->type )  === Narrow_User::STATUS_REJECTED ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Rejected")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<br/><br/>
+
+<?php if( count( $this->users ) == 0 ):?>
+	<?php echo $this->_("There is no user in this category.")?>
+<?php else:?>
+
+<table width="100%">
+<tr class="head">
+    <td><?php echo $this->_('Name');?></td>
+    <td><?php echo $this->_('Email');?></td>
+    <td><?php echo $this->_('Status');?></td>
+    <td style="width:300px;"><?php echo $this->_('Action');?></td>
+</tr>
+
+
+
+<?php
+foreach($this->users as $user ):
+?>
+<tr>
+	<td><?php echo $user['name']; ?></td>
+	<td><?php echo $user['email']; ?></td>
+	<td>
+		<?php 
+		if(  $user['status'] == Narrow::PLUS_DOCTOR ):
+			echo $this->_("Plus User");
+		elseif(  $user['status'] == Narrow::REGULAR_DOCTOR  ):
+			echo $this->_("Regular User");
+		elseif(  $user['status'] == Narrow::ADMIN  ):
+			echo $this->_("Admin");
+		elseif( $user['process'] == Narrow_User::PROCESS_REJECTED  ):
+			echo $this->_("Rejected");
+		else:
+			echo $this->_("Disapproved");
+		endif;
+		?>
+	</td>
+	<td>
+	<a href="<?php echo $this->url(array('action' => 'view' , 'controller' => 'user' , 'module' => 'admin' , 'id' =>$user->get_id() ), null, true);?>"><?php echo $this->translate->_('View');?></a> |
+	
+		<?php if( isset( $this->type ) && intval( $this->type ) === Narrow_User::PROCESS_WAITING ): ?>
+		<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->translate->_('Reject');?></a> |
+		<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::ADMIN?>);"><?php echo $this->translate->_('Verify Admin');?></a> | 
+		<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::REGULAR_DOCTOR?>);"><?php echo $this->translate->_('Verify Regular');?></a> | 
+		<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::PLUS_DOCTOR?>);"><?php echo $this->translate->_('Verify Plus');?></a> 
+		<?php endif;?>
+		<?php if( intval( $this->type )  === Narrow_User::PROCESS_VERIFIED ):?>
+			<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->translate->_('Reject');?></a>  | 	
+			<?php if( $user['status'] != Narrow::ADMIN ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow::ADMIN?>);" ><?php echo $this->translate->_('To Admin');?></a> |
+			<?php endif;?>
+			<?php if( $user['status'] != Narrow::REGULAR_DOCTOR && $user['email'] != Narrow::GetInstance()->config->user->default_admin->username ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow::REGULAR_DOCTOR?>);"><?php echo $this->translate->_('To Regular');?></a> |
+			<?php endif;?>
+			<?php if( $user['status'] != Narrow::PLUS_DOCTOR && $user['email'] != Narrow::GetInstance()->config->user->default_admin->username ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow::PLUS_DOCTOR?>);"><?php echo $this->translate->_('To Plus');?></a> 
+			<?php endif;?>
+		<?php endif?>
+		
+		<?php if( intval( $this->type )  === Narrow_User::PROCESS_REJECTED ):?>
+		
+			<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::ADMIN?>);"><?php echo $this->translate->_('Verify Admin');?></a> | 
+			<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::REGULAR_DOCTOR?>);"><?php echo $this->translate->_('Verify Regular');?></a> | 
+			<a href="javascript:void(0);" onclick="verify(<?php echo $user['id']?> , <?php echo Narrow::PLUS_DOCTOR?>);"><?php echo $this->translate->_('Verify Plus');?></a> 
+			
+		<?php endif;?>
+	</td>
+</tr>
+<?php
+endforeach;
+?>
+<tr>
+	<td colspan='6'>&nbsp;</td>
+</tr>
+</table>
+
+<?php echo $this->paginationHTML ?>
+
+
+<?php endif;?>
+
+<script>
+
+	function reject( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to reject this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postreject/id/" + id;
+		}
+	}
+
+	function verify( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to approve this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postverify/id/" + id + "/status/" + status;
+		}
+	}
+
+	function change_role( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to change user's role? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postchangerole/id/" + id + "/status/" + status;
+		}
+	}
+
+
+	function create(){
+		location.href = '<?php echo $this->url(array('action' => 'create' , 'controller' => 'location' , 'module' => 'admin'), null, true);?>';
+	}
+
+	function change_to_normal( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to enable this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postrejecttonormal/id/" + id ;
+		}
+	}
+</script>
+
