@@ -1,0 +1,24 @@
+<h3><?php echo $this->_('Message View Panel'); ?></h3>
+<br/><br/>
+
+<form class="form" action="<?php echo $this->url(array(
+		'controller' => 'message', 
+		'action' => 'postsave', 
+		'module' => 'admin'
+		), null , true);?>" method="post" id="form">
+
+<input type="hidden" name="id" value="<?php echo $this->message['id']; ?>"/>
+
+<p>
+<label><?php echo $this->_('Content'); ?></label>
+<textarea id="content" name="content"><?php echo htmlspecialchars_decode(stripslashes($this->message['content'])); ?></textarea>
+</p>
+
+
+<p>
+<label></label>
+<input type="submit" value="<?php echo $this->_('Submit'); ?>" />
+</p>
+
+
+</form>

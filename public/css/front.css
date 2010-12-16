@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/* CSS Document */
+/*============================= Reset ======== */
+* { 
+	margin: 0;
+	padding: 0;
+}
+
+/*============================= End ===========*/
+
+.clear{ 
+	clear:both;
+}
+
+
+.error{
+	color:#FF0000;
+}
+
+img{ 
+	border:none;
+}
+
+a{ 
+	text-decoration:none;
+	color:#333333;
+}
+
+html,body{ 
+	width:100%; 
+	background:#F0EFEE; 
+	font-family:Tahoma,Verdana,arial,sans-serif; 
+	color:#808080; 
+	font-size:12px;
+}
+
+
+
+
+.form{
+	display:block;
+	margin:0 auto;
+	padding-bottom:20px;
+	width:400px;
+	font-size:13px;
+}
+
+.form p{
+	clear:both;
+	display:block;
+	margin-top:10px;
+}
+
+.form p label{
+	vertical-align:top;
+	display:inline-block;
+	width:140px;
+}
+
+.form p label.error{
+	vertical-align:top;
+	display:inline-block;
+	width:300px;
+	color:#FF0000;
+}
+
+.form_text{
+	border:1px solid #0062AC;
+	height:20px;
+	width:160px;
+}
+
+.form_text{
+	border:1px solid #0062AC;
+	height:20px;
+	width:160px;
+}
+
+.form_textarea{
+	border:1px solid #0062AC;
+	height:80px;
+	width:160px;
+}
+
+.form_button{
+	color:#0062AC;
+	font-size:12px;
+	height:22px;
+	width:70px;
+}
+
+
+
+
+
+

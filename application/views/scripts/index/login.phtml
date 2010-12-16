@@ -1,0 +1,28 @@
+<form class="form" action="<?php echo $this->url(array('action' => 'postlogin' , 'controller' => 'index' ), 'default', true);?>" method="post">
+		
+		<?php if( $this->error ) :?>
+		<p class="error">
+			<?php echo( $this->error )?>
+		</p>
+		<?php endif;?>
+		
+		<p>
+			<label for="email"><?php echo $this->_("E-mail")?>:</label>
+			<input class="form_text" name="email" id="email" type="text" value="" />
+		</p>
+		<p>
+			<label for="password"><?php echo $this->_("Password")?>:</label>
+			<input class="form_text" name="password" id="password" type="password" value="" />
+		</p>
+		
+		<p>
+			<?php echo $this->_("New Here?")?> <a href="<?php echo $this->url(array('action' => 'register' , 'controller' => 'index' ), 'default', true);?>" title="register"><?php echo $this->_("Sign up")?></a>
+		</p>
+
+		<p>
+			<label for="password"></label>
+			<input class="form_button" type="submit" value="<?php echo $this->_("Login")?>" />
+		</p>
+		
+</form>
+

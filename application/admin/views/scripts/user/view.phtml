@@ -1,0 +1,93 @@
+<h3><?php echo $this->_('User Panel'); ?></h3>
+
+<form class="form" action="#" >
+
+<p>
+	<label><?php echo $this->_('Email'); ?></label>
+	<?php echo $this->user['email']?>
+</p>
+
+<p>
+	<label for="name"><?php echo $this->_("Status")?>:</label>
+	<?php echo $this->user["status_name"]?>
+</p>
+
+<p>
+	<label for="name"><?php echo $this->_("Role")?>:</label>
+	<?php echo $this->user["role_name"]?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Name'); ?></label>
+	<?php echo $this->user['name']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Occupation'); ?></label>
+	<?php echo $this->user['occupation']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Place Of Work'); ?></label>
+	<?php echo $this->user['place_of_work']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Comments'); ?></label>
+	<?php echo $this->user['comments']?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Create Time'); ?></label>
+	<?php echo date('Y-m-d' , $this->user['date_add']); ?>
+</p>
+
+<p>
+	<label><?php echo $this->_('Action'); ?></label>
+	
+</p>
+
+
+
+
+
+</form>
+
+
+<script>
+
+	function reject( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to reject this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postreject/id/" + id;
+		}
+	}
+
+	function verify( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to approve this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postverify/id/" + id + "/status/" + status;
+		}
+	}
+
+	function change_role( id , status ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to change user's role? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postchangerole/id/" + id + "/status/" + status;
+		}
+	}
+
+
+	function create(){
+		location.href = '<?php echo $this->url(array('action' => 'create' , 'controller' => 'location' , 'module' => 'admin'), null, true);?>';
+	}
+
+	function change_to_normal( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to enable this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postrejecttonormal/id/" + id ;
+		}
+	}
+</script>
+
+

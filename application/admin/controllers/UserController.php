@@ -1,5 +1,5 @@
 <?php 
-	class Admin_DoctorController extends Narrow_ZendX_Controller_Action_Admin{
+	class Admin_UserController extends Narrow_ZendX_Controller_Action_Admin{
 	
 		
 		const TITLE = 'user';
@@ -12,7 +12,7 @@
 			$stauts	  = $this->_getParam( 'status' );
 			
 			
-			$userMod = Narrow_Message_Factory::Factory();
+			$userMod = Narrow_User_Factory::Factory();
 			
 			$users = $userMod->getsByStatus( $stauts , 'date_add DESC' , $pageNo , $pageSize );
 			$count = $userMod->getsByStatusCount( $stauts );
@@ -36,7 +36,7 @@
 			
 			$id = $this->_getParam( 'id' );
 			
-			$userMod = Narrow_Message_Factory::Factory();
+			$userMod = Narrow_User_Factory::Factory();
 			
 			$user   = $userMod->getById( $id );
 			
@@ -50,11 +50,11 @@
 			
 			$id = $this->_getParam( 'id' );
 			
-			$doctorMod = Mun_Doctor_Factory::Factory();
+			$userMod = Narrow_User_Factory::Factory();
 			
-			$doctorMod->reject( $id );
+			$userMod->status( $id , Narrow_User_Imple::STATUS_REJECTED );
 			
-			$this->redirect( 'index' , 'doctor' , 'admin' , array( 'type' => Mun_Doctor::PROCESS_WAITING ) );
+			$this->redirect( 'index' , 'doctor' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
 			
 		}
 		
@@ -63,11 +63,23 @@
 			$id 	= $this->_getParam( 'id' );
 			$role 	= $this->_getParam( 'role' );
 			
-			$userMod = Narrow_Message_Factory::Factory();
-			$userMod->status( $id , Narrow_User::STATUS_APPROVAL );
+			$userMod = Narrow_User_Factory::Factory();
+			$userMod->approve( $id );
 			$userMod->role( $id , $role );
 			
-			$this->redirect( 'index' , 'user' , 'admin' , array( 'type' => Narrow_User::STATUS_WAITING ) );
+			$this->redirect( 'index' , 'user' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
+			
+		}
+		
+		public function poststatusAction(){
+
+			$id 		= $this->_getParam( 'id' );
+			$status 	= $this->_getParam( 'status' );
+			
+			$userMod = Narrow_User_Factory::Factory();
+			$userMod->status( $id , $status );
+			
+			$this->redirect( 'index' , 'user' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
 			
 		}
 		
@@ -76,13 +88,11 @@
 			$id 	= $this->_getParam( 'id' );
 			$role 	= $this->_getParam( 'role' );
 			
-			$userMod = Narrow_Message_Factory::Factory();
+			$userMod = Narrow_User_Factory::Factory();
 			
 			$userMod->role( $id , $role );
 			
-			$this->redirect( 'index' , 'doctor' , 'admin' , array( 'type' => Narrow_User::STATUS_APPROVAL ) );
-			
-			
+			$this->redirect( 'index' , 'user' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_APPROVAL ) );
 			
 		}
 		

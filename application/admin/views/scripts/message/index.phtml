@@ -1,0 +1,66 @@
+<h3><?php echo $this->_('Message Panel'); ?></h3>
+<br/><br/>
+
+
+<!-- view status -->
+
+
+
+<br/><br/>
+
+<?php if( count( $this->messages ) == 0 ):?>
+	<?php echo $this->_("There is no messages.")?>
+<?php else:?>
+
+<table width="100%">
+<tr class="head">
+    <td><?php echo $this->_('Id');?></td>
+    <td><?php echo $this->_('Content');?></td>
+    <td style="width:400px;"><?php echo $this->_('Action');?></td>
+</tr>
+
+
+
+<?php
+foreach($this->messages as $message ):
+?>
+<tr>
+	<td><?php echo $message['id']; ?></td>
+	<td><?php echo $message['content']; ?></td>
+	<td>
+		<a href="javascript:void(0);" onclick="message_edit(<?php echo $message['id']?>);"><?php echo $this->_('Edit');?></a> |
+		<a href="javascript:void(0);" onclick="message_delete(<?php echo $message['id']?>);"> <?php echo $this->_('Delete');?></a>
+	</td>
+</tr>
+<?php
+endforeach;
+?>
+<tr>
+	<td colspan='6'>&nbsp;</td>
+</tr>
+</table>
+
+<?php echo $this->paginationHTML ?>
+
+
+<?php endif;?>
+
+<script>
+
+	function message_edit( id ){
+		
+		location.href = __BASE_URL__ + "/admin/message/edit/id/" + id;
+		
+	}
+
+	function message_delete( id , role ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to delete this message? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/message/postdelete/id/" + id;
+		}
+	}
+
+
+
+</script>
+

@@ -1,0 +1,120 @@
+<h3><?php echo $this->_('User Panel'); ?></h3>
+<br/><br/>
+
+
+<!-- view status -->
+
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'status' => Narrow_User_Imple::STATUS_WAITING ), null, true);?>" title="all" 
+<?php if( $this->status != null && intval( $this->status )  === Narrow_User_Imple::STATUS_WAITING ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_('User waitting for process'); ?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'status' => Narrow_User_Imple::STATUS_APPROVAL ), null, true);?>" title="all" 
+<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_APPROVAL ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Approved")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'status' => Narrow_User_Imple::STATUS_REJECTED ), null, true);?>" title="all" 
+<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_REJECTED ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Rejected")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<br/><br/>
+
+<?php if( count( $this->users ) == 0 ):?>
+	<?php echo $this->_("There is no user in this category.")?>
+<?php else:?>
+
+<table width="100%">
+<tr class="head">
+    <td><?php echo $this->_('Name');?></td>
+    <td><?php echo $this->_('Email');?></td>
+    <td><?php echo $this->_('Status');?></td>
+    <td><?php echo $this->_('Role');?></td>
+    <td style="width:400px;"><?php echo $this->_('Action');?></td>
+</tr>
+
+
+
+<?php
+foreach($this->users as $user ):
+?>
+<tr>
+	<td><?php echo $user['name']; ?></td>
+	<td><?php echo $user['email']; ?></td>
+	<td><?php echo $user['status_name'];?></td>
+	<td><?php echo $user['role_name'];?></td>
+	<td>
+	<a href="<?php echo $this->url(array('action' => 'view' , 'controller' => 'user' , 'module' => 'admin' , 'id' =>$user->get_id() ), null, true);?>"><?php echo $this->_('View');?></a> |
+	
+		<?php if( isset( $this->status ) && intval( $this->status ) === Narrow_User_Imple::STATUS_WAITING ): ?>
+		<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->_('Reject');?></a> |
+		<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
+		<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> | 
+		<?php endif;?>
+		<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_APPROVAL ):?>
+			<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->_('Reject');?></a>  | 	
+			<?php if( $user['role'] == Narrow_User_Imple::ROLE_USER ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);" ><?php echo $this->_('To Admin');?></a> |
+			<?php endif;?>
+			<?php if( $user['role'] == Narrow_User_Imple::ROLE_ADMIN ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"><?php echo $this->_('To Default');?></a> |
+			<?php endif;?>
+		<?php endif?>
+		
+		<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_REJECTED ):?>
+			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
+			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> | 
+			
+		<?php endif;?>
+	</td>
+</tr>
+<?php
+endforeach;
+?>
+<tr>
+	<td colspan='6'>&nbsp;</td>
+</tr>
+</table>
+
+<?php echo $this->paginationHTML ?>
+
+
+<?php endif;?>
+
+<script>
+
+	function reject( id ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to reject this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postreject/id/" + id;
+		}
+	}
+
+	function approve( id , role ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to approve this user? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postapprove/id/" + id + "/role/" + role;
+		}
+	}
+
+	function change_role( id , role ){
+		var answer = confirm("<?php echo $this->_("Are you sure you want to change user's role? ")?>");
+		if(answer){
+			location.href = __BASE_URL__ + "/admin/user/postrole/id/" + id + "/role/" + role;
+		}
+	}
+
+
+</script>
+

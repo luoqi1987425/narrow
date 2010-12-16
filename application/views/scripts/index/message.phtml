@@ -1,0 +1,51 @@
+<form onsubmit="return check_form();" class="form" action="<?php echo $this->url(array('action' => 'postmessage' , 'controller' => 'index' ), 'default', true);?>" method="post">
+		
+		<p>
+			<label for="comments"><?php echo $this->_("Content")?>:</label>
+			<textarea class="form_textarea" name="content" id="content"></textarea>
+			<label class="error" id="content_error"></label>
+		</p>
+		
+		<p>
+			<label for="password"></label>
+			<input class="form_button" type="submit" value="<?php echo $this->_("Submit")?>" />
+		</p>
+
+		<p>
+			<label for="password"></label>
+			<a href="<?php echo $this->url(array('action' => 'logout' , 'controller' => 'index' ), 'default', true);?>" title="logout"><?php echo $this->_("Logout")?></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->url(array('action' => 'password' , 'controller' => 'index' ), 'default', true);?>" title="logout"><?php echo $this->_("Change password")?></a>
+		</p>
+		
+</form>
+
+<script type="text/javascript">
+//<!-- 
+
+	function check_form(){
+
+
+
+		var email = $("#content").val();
+		var isEmpty = rocknoon.validate.is_empty( email );
+		if( isEmpty ){
+			show_error( "content_error" , '<?php echo $this->_("You should input a message!");?>' );
+			return false;			
+		}
+
+
+		
+
+		return true;
+		
+	}
+
+	function show_error( id , error ){
+	
+		$("#" + id).html(error);
+
+	}
+
+
+//--> 
+</script>

@@ -1,0 +1,116 @@
+<form  onsubmit="return check_form();" class="form" id="form" action="<?php echo $this->url(array('action' => 'postregister' , 'controller' => 'index' ), 'default', true);?>" method="post">
+		<p>
+			<label for="email"><?php echo $this->_("E-mail")?>:*</label>
+			<input class="form_text" name="email" id="email" type="text" value="" />
+			<label class="error" id="email_error"></label>
+		</p>
+		<p>
+			<label for="name"><?php echo $this->_("Name")?>:*</label>
+			<input class="form_text" name="name" id="name" type="text" value="" />
+			<label class="error" id="name_error"></label>
+		</p>
+		<p>
+			<label for="email"><?php echo $this->_("Occupation")?>:*</label>
+			<input class="form_text" name="occupation" id="occupation" type="text" value="" />
+			<label class="error" id="occupation_error"></label>
+		</p>
+		<p>
+			<label for="email"><?php echo $this->_("Place Of Work")?>:*</label>
+			<input class="form_text" name="place_of_work" id="place_of_work" type="text" value="" />
+			<label class="error" id="place_of_work_error"></label>
+		</p>
+		
+		<p>
+			<label for="comments"><?php echo $this->_("Comments")?>:</label>
+			<textarea class="form_textarea" name="comments" id="comments"></textarea>
+		</p>
+		
+		<p>
+			<label for="password"></label>
+			<input class="form_button" type="submit" value="<?php echo $this->_("Register")?>" />
+		</p>
+		
+		<p>
+			<label for="password"></label>
+			<a href="<?php echo $this->url(array('action' => 'login' , 'controller' => 'index' ), 'default', true);?>" title="register"><?php echo $this->_("Back")?>
+				<img src="<?php echo $this->baseUrl()?>/images/bullet04.gif" alt="back"/>
+			</a>
+		</p>
+			
+		
+</form>
+
+<script type="text/javascript">
+//<!-- 
+
+	function check_form(){
+
+
+
+		var email = $("#email").val();
+		var isEmail = rocknoon.validate.is_email( email );
+		if( !isEmail ){
+			show_error( "email_error" , '<?php echo $this->_("You should input a right email address!");?>' );
+			return false;			
+		}
+
+		var name = $("#name").val();
+		var isEmpty = rocknoon.validate.is_empty( name );
+		if( isEmpty ){
+			show_error( "name_error" , '<?php echo $this->_("You should input your name!");?>' );
+			return false;			
+		}
+
+		var occupation = $("#occupation").val();
+		var isEmpty = rocknoon.validate.is_empty( occupation );
+		if( isEmpty ){
+			show_error( "occupation_error" , '<?php echo $this->_("You should input your occupation!");?>' );
+			return false;			
+		}
+
+		var place_of_work = $("#place_of_work").val();
+		var isEmpty = rocknoon.validate.is_empty( place_of_work );
+		if( isEmpty ){
+			show_error( "place_of_work_error" , '<?php echo $this->_("You should input your place of work!");?>' );
+			return false;			
+		}
+
+		$.ajax({
+			type: "POST",
+			data: { 'email' : email  },
+			url: '<?php echo $this->url(array('action' => 'emailexist' , 'controller' => 'ajax'), 'default', true);?>',
+			complete : on_complete_check_email
+		});
+
+		
+
+		return false;
+		
+	}
+
+	function show_error( id , error ){
+		$("#email_error").html("");
+		$("#name_error").html("");
+		$("#occupation_error").html("");
+		$("#place_of_work_error").html("");
+		$("#" + id).html(error);
+
+	}
+
+	function on_complete_check_email( response ){
+
+		var rst = rocknoon.ajax.prase(response);
+		if( rst.status ){
+			if( rst.info == 1 ){
+				show_error( "email_error" , "<?php echo $this->_("Email already exist!")?>" );
+			}else{
+				$("#form").submit();
+			}
+		}else{
+			alert( rst.info );
+		}
+		
+	}
+
+//--> 
+</script>

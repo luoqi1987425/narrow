@@ -1,0 +1,251 @@
+@charset "utf-8";
+/* CSS Document */
+html {height:100%;overflow:scroll;}
+body {
+	margin: 0;
+	margin-bottom: 25px;
+	padding: 0;
+	background-color: #f0f0f0;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	color: #333;
+}
+h1 {
+	font-size: 28px;
+	color: #000;
+}
+a {
+	color: #C01D2E
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+form{
+	margin-top:30px;
+}
+
+form fieldset{
+	padding : 0;
+	border-style : none;
+
+}
+
+form fieldset{
+	padding : 0;
+	border-style : none;
+
+}
+
+form fieldset fieldset{
+	border: 1px solid #aaa;
+}
+
+form fieldset p.lang{
+	color: #C01D2E;
+	font-size:16px;
+}
+
+#page {
+	background-color: #f0f0f0;
+	width: 1000px;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+#body {
+	float: left;
+	background-color: white;
+	border: 3px solid #aaa;
+	border-top: none;
+	padding: 25px;
+	width: 785px;
+}
+#body a, #body a:link, #body a:visited {
+	text-decoration: underline;
+	color:black;
+}
+
+
+#body a:hover, #body a:active {
+	text-decoration: none;
+	color:#C01D2E;
+	background:#FFF;
+}
+
+#body a.current {
+	color:#C01D2E;
+	background:#FFF;
+}
+
+
+
+#sidebar {
+	float: right;
+	width: 140px;
+}
+#sidebar ul {
+	margin-left: 0;
+	padding-left: 0;
+	font-family:"Georgia", Times, serif;
+	font-weight:bold;
+}
+#sidebar ul h3 {
+	margin-top: 25px;
+	font-size: 16px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+#sidebar li {
+	list-style-type: none;
+}
+#sidebar li a, #sidebar li a:hover{
+	padding-top:30px;
+	display:block;
+	color:gray;
+	text-decoration:none;
+	padding-bottom:2px;
+	font-weight:bold;
+	border-bottom:#666 3px solid;
+}
+#sidebar li a:hover{
+	color:black;
+	border-bottom:#C01D2E 3px solid;
+	background-color: transparent ;
+}
+#sidebar ul.links li {
+	margin-bottom: 5px;
+}
+.important {
+	font-size: 14px;
+	color: #900;
+}
+
+
+.pagination li{
+	float:left;
+	list-style:none;
+	padding:5px;
+}
+
+.paginator li.current_item a{
+	color:#C01D2E;
+}
+
+
+
+.row label{
+	width:100px;
+}
+form p{
+	display:block;
+	clear:both;
+	margin-top:10px;
+	padding-left:100px;
+}
+fieldset{
+	padding:10px;
+}
+tr.head{
+	text-transform:capitalize;
+}
+.title{
+	font-weight:bold;
+	border:1px solid #999;
+	border-top:0;
+	border-bottom:0;
+	width:120px;
+	text-transform:capitalize;
+	padding:0 10px;
+}
+.content{
+    color: #666;
+    font-size: 10px;
+}
+.row{
+	roverflow:hidden;
+	margin:20px 0;
+}
+.ul_float{
+	overflow:hidden;
+	margin-bottom:10px;
+}
+.ul_float li {
+	float:left;
+	padding-right:20px;
+	list-style:none;
+}
+
+ul.list{ 
+	margin:0;
+	display:block;
+	overflow:hidden;
+	padding-left:100px;
+
+}
+
+ul.list li{
+	float:left;
+	line-height:30px;
+	list-style:none outside none;
+	margin:0;
+	padding:0;
+	width:150px;
+}
+
+
+#sidebar-items li{
+	margin:5px 0;
+}
+
+
+#customize{
+	
+	background:url("../images/logo.png") no-repeat scroll center transparent;
+	margin:0 auto;
+	width:785px;
+	height:150px;
+	text-align:center;
+	position:relative;
+	z-index:999;
+	smargin-bottom:60px;
+	border-bottom: #C01D2E 9px solid;
+}
+
+#customize img{ float:left; margin-left:30px; margin-top:25px;}
+#logo{
+	width:166px;
+	height:195px;
+	margin:-1px auto 0;
+	display:block;
+	clear:both;
+	background:url(../images/gift_box.png) no-repeat bottom;
+	z-index:999;
+}
+
+td form{
+	display:inline-block;
+	*display:inline;
+}
+
+td a{ 
+font-family:"Georgia", Times, serif;
+
+font-weight:bold;
+text-decoration:underline;
+color:black;
+background-color:white;
+}
+
+td a:hover{ 
+background-color:white;
+color: #C01D2E;
+text-decoration:none;
+}
+
+.form p label{
+	width:200px;
+	display:inline-block;
+}
+

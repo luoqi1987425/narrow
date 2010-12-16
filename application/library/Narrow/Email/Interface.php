@@ -4,9 +4,9 @@
 		
 		public function register( $email , $name );
 		
-		public function registerForAdmin( $email );
+		public function registerForAdmin( $admins , $name , $occupation , $place_of_work );
 		
-		public function approve( $email , $code );
+		public function approve( $email , $name , $code );
 		
 		
 	}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php 
+echo $this->headScript();
+echo $this->headStyle();
+echo $this->headLink(); 
+echo $this->headTitle();
+?>
+<?php 
+if( WeFlex_Application::GetInstance()->config->js->compress ){
+	echo '<script type="text/javascript" src="'.$this->baseUrl().WeFlex_Application::GetInstance()->config->js->dir.'"></script> ';
+}
+?>
+<script type="text/javascript">
+var __BASE_URL__ = '<?php echo $this->baseUrl()?>';
+</script>
+<link href="<?php echo $this->baseUrl()?>/css/front.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="page">
+  
+    <?php echo $this->layout()->content ?>
+</div>
+
+
+</body>
+</html>

@@ -46,7 +46,7 @@ $application->bootstrap();
 /**
  * WeFlex Start
  */
-WeFlex_Application::GetInstance()->start( APPLICATION_ENV , APPLICATION_PATH . '/configs/sms.ini' );
+WeFlex_Application::GetInstance()->start( APPLICATION_ENV , APPLICATION_PATH . '/configs/narrow.ini' );
 
 /**
  * Narrow Init

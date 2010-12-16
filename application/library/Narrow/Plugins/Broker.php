@@ -1,5 +1,7 @@
 <?php 
-	class Narrow_Plugins_Broker extends Narrow_Plugins_Event{
+	class Narrow_Plugins_Broker implements Narrow_Plugins_IEvent{
+		
+		private static $_instance;
 		
 		/**
 		 * 
@@ -7,6 +9,11 @@
 		 *
 		 */
 		public static function GetInstance(){
+			
+			if( !self::$_instance ){
+				self::$_instance = new self();
+			}
+			return self::$_instance;
 			
 		}
 		
@@ -18,19 +25,46 @@
 			
 		}
 		
-		public function register( $plugin ){
+		public function register( Narrow_Plugins_Exts_Abstract $plugin ){
 			
 			$this->_plugins[] = $plugin;
 			
 		}
 		
-		public function afterUserRegister(){
+		public function afterUserRegister( $data ){
 			
 			foreach( $this->_plugins as $plugin ){
-				$plugin->afterUserRegister();
+				$plugin->afterUserRegister( $data );
 			}
 			
 		}
+	
+	
+		public function afterUserRole($data) {
+			
+			foreach( $this->_plugins as $plugin ){
+				$plugin->afterUserRole( $data );
+			}
+			
+		}
+		
+		
+		public function afterUserStatus($data) {
+			
+			foreach( $this->_plugins as $plugin ){
+				$plugin->afterUserStatus( $data );
+			}
+			
+		}
+		
+		public function afterUserApprove($data) {
+			
+			foreach( $this->_plugins as $plugin ){
+				$plugin->afterUserApprove( $data );
+			}
+			
+		}
+
 		
 		
 		

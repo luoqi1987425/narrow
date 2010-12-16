@@ -1,16 +1,167 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Narrow_ZendX_Controller_Action_Front
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
+	
+	const TITLE = "TV Mundipharma";
 
     public function indexAction()
     {
-        // action body
+        $userMod = Narrow_User_Factory::Factory();
+        
+        $isLogin = $userMod->isLogined();
+        
+        if( $isLogin ){
+        	$this->redirect( "message" , "index" , "default" );
+        }else{
+        	$this->redirect( "login" , "index" , "default" );
+        }
+    }
+    
+    public function loginAction(){
+    	
+    	
+    	
+    }
+    
+	public function registerAction(){
+    	
+    	
+    	
+    }
+    
+	public function passwordAction(){
+    	
+    	$code = $this->_getParam( 'code' );
+    	
+    	$userMod = Narrow_User_Factory::Factory();
+    	
+    	
+    	if( $code ){
+	    	try {
+	    		$userMod->loginFromCode($code);
+	    	}catch( Exception $ex ){
+	    		$this->render( 'passworderror' );	
+	    	}
+	    	$this->assign( 'code' , $code );
+    	} 
+    	
+    	
+    	
+    	
+    	$this->view->headTitle( $this->_( self::TITLE ) );
+    	
+    }
+    
+    public function messageAction(){
+
+    	
+    }
+    
+	public function thanksAction(){
+
+    	
+    }
+    
+    public function rssAction(){
+    	
+    	header('Content-type: application/xml;charset=UTF-8');
+    	
+    	$sign = "111";
+    	
+    	$messageMod = Narrow_Message_Factory::Factory();
+    	
+    	$out = $messageMod->getsRssOutput($sign);
+    	
+    	echo $out;
+    	
+    	die();
+    	
+    }
+    
+	public function logoutAction(){
+    	
+    	$userMod = Narrow_User_Factory::Factory();
+    	$userMod->logout();
+    	
+    	$this->redirect( 'login' , 'index' );
+    	
+    }
+    
+    public function postmessageAction(){
+    	
+    	$data = array();
+    	
+    	
+    	
+    	$messageMod = Narrow_Message_Factory::Factory();
+    	$userMod 	= Narrow_User_Factory::Factory();
+    	
+    	$loginUser = $userMod->getLoginUser();
+    	
+    	$data['content'] = $this->_getParam( "content" );
+    	$data['user_id'] = $loginUser['id'];
+    	
+    	
+    	$messageMod->save( $data );
+    	
+    	$this->redirect( 'thanks' , 'index' );
+    	
+    }
+    
+	public function postloginAction(){
+    	
+    	$email	  =  $this->getRequest()->getParam( 'email' );
+		$password =  $this->getRequest()->getParam( 'password' );
+    	
+		
+       	$userMod = Narrow_User_Factory::Factory();
+      	 
+      	try {
+      		$userMod->login( $email , $password );
+      	}catch( Exception $ex ){
+      		$this->assign( 'error' ,  $ex->getMessage());
+      		$this->render( 'login' );
+      		return;
+      	}
+      	
+ 
+      	
+      	
+      	$this->redirect( 'message' , 'index'  );
+    	
+    }
+    
+	public function postregisterAction(){
+    	
+    	$user =  Narrow_User_Factory::Factory();
+    	
+    	
+    	$data = array();
+    	$data['email'] = $this->_getParam( 'email' );
+    	$data['name'] = $this->_getParam( 'name' );
+    	$data['occupation'] = $this->_getParam( 'occupation' );
+    	$data['place_of_work'] = $this->_getParam( 'place_of_work' );
+    	$data['comments'] = $this->_getParam( 'comments' );
+    	
+    	$user->register( $data );
+    	
+    	$this->redirect( 'thanks' , 'index' );
+    	
+    }
+    
+	public function postchangepasswordAction(){
+    	
+    	$user =  Narrow_User_Factory::Factory();
+    	
+    	
+    	$code 		= $this->_getParam( "code" );
+    	$password 	= $this->_getParam( "password" );
+    	
+    	$user->changeLoginUserPassword( $password , $code );
+    	
+    	$this->redirect( 'thanks' , 'index' );
+    	
     }
 
 
