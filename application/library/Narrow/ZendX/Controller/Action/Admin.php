@@ -13,21 +13,22 @@
 
 	    private function _checkAdminPermission(){
 	    	
-//	    	if( $this->_request->getActionName() != 'login' && $this->_request->getControllerName() != 'index' &&  $this->_request->getActionName() != 'uploadimage' ){
-//	    		$userMod = Narrow_User_Factory::Factory();
-//				$isLogined = $userMod->isLogined();
-//				if( !$isLogined ){
-//					$this->_helper->redirector->gotoSimple('index', 'index' , 'default');
-//					return;
-//				}
-//				
-//				$user = $userMod->getLoginUser();
-//				
-//				if( $user['role'] != Narrow_User_Imple::ROLE_ADMIN ){
-//					$this->_helper->redirector->gotoSimple('index', 'index' , 'default');
-//					return;
-//				}
-//	    	}
+	    	if(  $this->_request->getActionName() != 'uploadimage' ){
+	    		$userMod = Narrow_User_Factory::Factory();
+				$isLogined = $userMod->isLogined();
+				
+				if( !$isLogined ){
+					$this->_helper->redirector->gotoSimple('index', 'index' , 'default');
+					return;
+				}
+				
+				$user = $userMod->getLoginUser();
+				
+				if( $user['role'] != Narrow_User_Imple::ROLE_ADMIN ){
+					$this->_helper->redirector->gotoSimple('index', 'index' , 'default');
+					return;
+				}
+	    	}
 	    	
 	    }
 	    

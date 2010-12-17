@@ -60,6 +60,9 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     
 	public function thanksAction(){
 
+		$content  = $this->_getParam( "content" );
+		
+		$this->assign( "content" , $content );
     	
     }
     
@@ -105,7 +108,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$messageMod->save( $data );
     	
-    	$this->redirect( 'thanks' , 'index' );
+    	$this->redirect( 'thanks' , 'index' , "default" , 
+    	array( "content" => "Successfully submit message" ) );
     	
     }
     
@@ -146,7 +150,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$user->register( $data );
     	
-    	$this->redirect( 'thanks' , 'index' );
+    	$this->redirect( 'thanks' , 'index' , "default" , 
+    	array( "content" => "Thanks for your register. and we will have a approval work for your apply. if your information is approved, we will use email to notice you." ) );
     	
     }
     
@@ -160,7 +165,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$user->changeLoginUserPassword( $password , $code );
     	
-    	$this->redirect( 'thanks' , 'index' );
+    	$this->redirect( 'thanks' , 'index' , "default" , 
+    	array( "content" => "successfully change your password" ) );
     	
     }
 

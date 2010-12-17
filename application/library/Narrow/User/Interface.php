@@ -33,6 +33,9 @@
 		//if code, then expire code
 		public function changeLoginUserPassword( $newpassword , $code = null );
 		
+		//check user role
+		public function isLoginUserRole( $role );
+		
 		public function isEmailExist( $email );
 		
 		public function generDefualtAdminDoctor();

@@ -173,6 +173,20 @@
 			
 			
 		}
+	
+
+		public function isLoginUserRole($role) {
+			
+			$loginUser = $this->getLoginUser();
+			
+			if( $loginUser['role'] == $role ){
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+
 
 	
 	
