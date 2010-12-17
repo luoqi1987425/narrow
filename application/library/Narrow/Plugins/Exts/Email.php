@@ -22,7 +22,7 @@
 		public function afterUserApprove( $data ){
 			
 			$emailMod = Narrow_Email_Factory::Factory();
-			$emailMod->approve( $data['email'] , $data['code'] );
+			$emailMod->approve( $data['email'] , $data['name'] , $data['code'] );
 			
 		}
 		

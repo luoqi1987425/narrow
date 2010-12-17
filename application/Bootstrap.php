@@ -59,7 +59,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     
 	protected function _initRouter(){
 		
+		$messageRssRouter = new Zend_Controller_Router_Route(
+		    '/rss',
+		    array(
+		        'controller' => 'index',
+		        'action'     => 'rss',
+		    	'module'	 => 'default'
+		    )
+		);
 		
+		$router = $this->_front->getRouter();
+		$router->addRoute('message-rss', 	$messageRssRouter);
 
 	}
 	

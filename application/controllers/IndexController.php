@@ -70,12 +70,18 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	header('Content-type: application/xml;charset=UTF-8');
     	
-    	$sign = "111";
+    	$sign = $this->_getParam( "sign" );
     	
     	$messageMod = Narrow_Message_Factory::Factory();
     	
-    	$out = $messageMod->getsRssOutput($sign);
-    	
+    	try{
+    		$out = $messageMod->getsRssOutput($sign);
+    	}catch(Exception $ex){
+    		
+    		$out = "<xml>".$ex->getMessage()."</xml>";
+    		
+    	}
+
     	echo $out;
     	
     	die();

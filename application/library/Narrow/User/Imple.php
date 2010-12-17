@@ -342,6 +342,7 @@
 			
 			//plugin_data
 			$this->_plugin_datas['email'] 	= $user['email'];
+			$this->_plugin_datas['name'] 	= $user['name'];
 			$this->_plugin_datas['code']  	= $code;
 			
 		}

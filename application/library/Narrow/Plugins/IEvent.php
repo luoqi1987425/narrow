@@ -18,6 +18,7 @@
 		
 		/**
 		 * email
+		 * name
 		 * code
 		 */
 		public function afterUserApprove( $data );

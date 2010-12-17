@@ -46,7 +46,8 @@
 		
 		private function _generateAdminSendContent( $name , $occupation , $place_of_work ){
 			
-			$donmain = $_SERVER['HTTP_HOST'];
+			
+			$url = WeFlex_Util::GetFullUrl( array( "action" => "index" , "controller" => "index" ,  "module" => "admin" ) , "default" );
 			
 			return "Beste,<br/><br/>
 
@@ -56,7 +57,7 @@
 			User Occupation: ".$occupation."<br/>
 			User Place Of Work: ".$place_of_work."<br/>
 			<br/>
-			<a href='http://".$donmain."/admin' target='_blank'>Go here to approve this user.</a>
+			<a href='$url' target='_blank'>Go here to approve this user.</a>
 			<br/><br/>
 			Bedankt,
 			<br/><br/>
@@ -67,12 +68,12 @@
 		
 		private function _generateApprovelContent( $name ,  $code ){
 			
-			$donmain = $_SERVER['HTTP_HOST'];
+			$url = WeFlex_Util::GetFullUrl( array( "action" => "password" , "controller" => "index" , "code" => $code ) , "default" );
 			
 			$content = 'Beste '.$name.',<br/><br/>
 						U aanvraag is goedgekeurd en u bent nu lid van de Mundipharma community. U kunt direct inloggen en gebruik maken van de community.
 						<br/><br/>
-						U kunt hier inloggen (indien de link niet werkt, dan kunt u deze kopiëren in uw browser): <a href="http://'.$donmain.'/index/password/code/'.$code.'" target="_blank">click here to active your account and log in</a>
+						U kunt hier inloggen (indien de link niet werkt, dan kunt u deze kopiëren in uw browser): <a href="'.$url.'" target="_blank">click here to active your account and log in</a>
 						<br/><br/>
 						U kunt uw wachtwoord wijzigen na de eerste keer dat u inlogt.
 						<br/><br/>
