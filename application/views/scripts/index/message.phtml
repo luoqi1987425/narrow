@@ -4,7 +4,15 @@
 			<label for="comments"><?php echo $this->_("Content")?>:</label>
 			<textarea class="form_textarea" name="content" id="content"></textarea>
 			<label class="error" id="content_error"></label>
+			
 		</p>
+		
+		<p style="margin-top: -10px;">
+			<label></label>
+			The remain char is <span id="remain_word"></span>
+		</p>
+		
+		
 		
 		<p>
 			<label for="password"></label>
@@ -28,6 +36,8 @@
 
 <script type="text/javascript">
 //<!-- 
+	var message_limit = 160;
+	$('#content').textlimit('#remain_word',message_limit);
 
 	function check_form(){
 
