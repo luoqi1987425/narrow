@@ -4,8 +4,7 @@
 		/**
 		 * email
 		 * name
-		 * occupation
-		 * place_of_work
+		 * job_desc
 		 * 
 		 */
 		public function afterUserRegister( $data );

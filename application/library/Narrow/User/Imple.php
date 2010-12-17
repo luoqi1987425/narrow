@@ -209,7 +209,8 @@
 				
 				
 				$data = array();
-				$data['name']		= 'Administrator';
+				$data['first_name']		= 'Administrator';
+				$data['last_name']		= 'Administrator';
 				$data['email'] 		= $default_admin_account;   
 				$data['status']		= self::STATUS_APPROVAL;
 				$data['role'] 		= self::ROLE_ADMIN;
@@ -301,9 +302,8 @@
 			
 			//plugin_data
 			$this->_plugin_datas['email'] 		= $data['email'];
-			$this->_plugin_datas['name'] 		= $data['name'];
-			$this->_plugin_datas['occupation'] 	= $data['occupation'];
-			$this->_plugin_datas['place_of_work'] = $data['place_of_work'];
+			$this->_plugin_datas['name'] 		= $data['first_name'];
+			$this->_plugin_datas['job_desc'] 	= $data['job_desc'];
 			return $data;
 			
 		}
@@ -342,7 +342,7 @@
 			
 			//plugin_data
 			$this->_plugin_datas['email'] 	= $user['email'];
-			$this->_plugin_datas['name'] 	= $user['name'];
+			$this->_plugin_datas['name'] 	= $user['first_name'];
 			$this->_plugin_datas['code']  	= $code;
 			
 		}

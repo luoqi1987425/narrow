@@ -149,10 +149,9 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$data = array();
     	$data['email'] = $this->_getParam( 'email' );
-    	$data['name'] = $this->_getParam( 'name' );
-    	$data['occupation'] = $this->_getParam( 'occupation' );
-    	$data['place_of_work'] = $this->_getParam( 'place_of_work' );
-    	$data['comments'] = $this->_getParam( 'comments' );
+    	$data['first_name'] = $this->_getParam( 'first_name' );
+    	$data['last_name'] = $this->_getParam( 'last_name' );
+    	$data['job_desc'] = $this->_getParam( 'job_desc' );
     	
     	$user->register( $data );
     	

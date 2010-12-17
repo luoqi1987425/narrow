@@ -1,28 +1,32 @@
 <form  onsubmit="return check_form();" class="form" id="form" action="<?php echo $this->url(array('action' => 'postregister' , 'controller' => 'index' ), 'default', true);?>" method="post">
+		
+		<p>
+			<label for="name"><?php echo $this->_("First Name")?>:*</label>
+			<input class="form_text" name="first_name" id="first_name" type="text" value="" />
+			<label class="error" id="first_name_error"></label>
+		</p>
+		<p>
+			<label for="email"><?php echo $this->_("Last Name")?>:*</label>
+			<input class="form_text" name="last_name" id="last_name" type="text" value="" />
+			<label class="error" id="last_name_error"></label>
+		</p>
+		
+		
 		<p>
 			<label for="email"><?php echo $this->_("E-mail")?>:*</label>
 			<input class="form_text" name="email" id="email" type="text" value="" />
 			<label class="error" id="email_error"></label>
 		</p>
 		<p>
-			<label for="name"><?php echo $this->_("Name")?>:*</label>
-			<input class="form_text" name="name" id="name" type="text" value="" />
-			<label class="error" id="name_error"></label>
-		</p>
-		<p>
-			<label for="email"><?php echo $this->_("Occupation")?>:*</label>
-			<input class="form_text" name="occupation" id="occupation" type="text" value="" />
-			<label class="error" id="occupation_error"></label>
-		</p>
-		<p>
-			<label for="email"><?php echo $this->_("Place Of Work")?>:*</label>
-			<input class="form_text" name="place_of_work" id="place_of_work" type="text" value="" />
-			<label class="error" id="place_of_work_error"></label>
+			<label for="email"><?php echo $this->_("Confirm E-mail")?>:*</label>
+			<input class="form_text" name="email_confirm" id="email_confirm" type="text" value="" />
+			<label class="error" id="email_confirm_error"></label>
 		</p>
 		
 		<p>
-			<label for="comments"><?php echo $this->_("Comments")?>:</label>
-			<textarea class="form_textarea" name="comments" id="comments"></textarea>
+			<label for="email"><?php echo $this->_("Job Desc")?>:*</label>
+			<textarea class="form_textarea" name="job_desc" id="job_desc"  ></textarea>
+			<label class="error" id="job_desc_error"></label>
 		</p>
 		
 		<p>
@@ -54,26 +58,34 @@
 			return false;			
 		}
 
-		var name = $("#name").val();
-		var isEmpty = rocknoon.validate.is_empty( name );
-		if( isEmpty ){
-			show_error( "name_error" , '<?php echo $this->_("You should input your name!");?>' );
+		var email_confirm = $("#email_confirm").val();
+		var isSame = rocknoon.validate.is_same( email , email_confirm );
+		if( !isSame ){
+			show_error( "email_confirm_error" , '<?php echo $this->_("confirmed email address is not right!");?>' );
 			return false;			
 		}
 
-		var occupation = $("#occupation").val();
-		var isEmpty = rocknoon.validate.is_empty( occupation );
+		var first_name = $("#first_name").val();
+		var isEmpty = rocknoon.validate.is_empty( first_name );
 		if( isEmpty ){
-			show_error( "occupation_error" , '<?php echo $this->_("You should input your occupation!");?>' );
+			show_error( "first_name_error" , '<?php echo $this->_("You should input your first name!");?>' );
 			return false;			
 		}
 
-		var place_of_work = $("#place_of_work").val();
-		var isEmpty = rocknoon.validate.is_empty( place_of_work );
+		var last_name = $("#last_name").val();
+		var isEmpty = rocknoon.validate.is_empty( last_name );
 		if( isEmpty ){
-			show_error( "place_of_work_error" , '<?php echo $this->_("You should input your place of work!");?>' );
+			show_error( "last_name_error" , '<?php echo $this->_("You should input your last name!");?>' );
 			return false;			
 		}
+
+		var job_desc = $("#job_desc").val();
+		var isEmpty = rocknoon.validate.is_empty( job_desc );
+		if( isEmpty ){
+			show_error( "job_desc_error" , '<?php echo $this->_("You should input your job_desc!");?>' );
+			return false;			
+		}
+
 
 		$.ajax({
 			type: "POST",
@@ -90,9 +102,10 @@
 
 	function show_error( id , error ){
 		$("#email_error").html("");
-		$("#name_error").html("");
-		$("#occupation_error").html("");
-		$("#place_of_work_error").html("");
+		$("#email_confirm_error").html("");
+		$("#first_name_error").html("");
+		$("#last_name_error").html("");
+		$("#job_desc_error").html("");
 		$("#" + id).html(error);
 
 	}

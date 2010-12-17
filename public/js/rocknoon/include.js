@@ -186,6 +186,13 @@ if (typeof (rocknoon) == 'undefined') {
 			}
 		}
 		
+		rocknoon.validate.is_same = function ( value_a , value_b ){
+			if( value_a == value_b ){
+				return true;
+			}
+			return false;
+		}
+		
 		function trim(  str, charlist  ){
 			var whitespace, l = 0, i = 0;
 			str += '';
