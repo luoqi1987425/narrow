@@ -54,7 +54,7 @@
 			
 			$userMod->status( $id , Narrow_User_Imple::STATUS_REJECTED );
 			
-			$this->redirect( 'index' , 'doctor' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
+			$this->redirect( 'index' , 'user' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
 			
 		}
 		

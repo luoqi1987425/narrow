@@ -39,6 +39,8 @@
 		
 		private function _configPlugins(){
 			
+			$broker = Narrow_Plugins_Broker::GetInstance();
+			$broker->register( new Narrow_Plugins_Exts_Email() );
 				
 		}
 		

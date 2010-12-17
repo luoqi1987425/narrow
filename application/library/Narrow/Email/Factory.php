@@ -10,7 +10,7 @@ class Narrow_Email_Factory{
 		 */
 		public static function Factory(){
 			if( !self::$_instance ){
-				self::$_instance = new Narrow_Email();
+				self::$_instance = new Narrow_Email_Imple();
 			}
 			return self::$_instance;
 		}

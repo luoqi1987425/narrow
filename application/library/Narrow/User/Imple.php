@@ -300,8 +300,10 @@
 			
 			
 			//plugin_data
-			$this->_plugin_datas['email'] = $data['email'];
-
+			$this->_plugin_datas['email'] 		= $data['email'];
+			$this->_plugin_datas['name'] 		= $data['name'];
+			$this->_plugin_datas['occupation'] 	= $data['occupation'];
+			$this->_plugin_datas['place_of_work'] = $data['place_of_work'];
 			return $data;
 			
 		}
@@ -334,9 +336,6 @@
 			
 			$user = $userModel->getOneByConditions( array( "id" => $id ) );
 			
-			if( $user["status"] != self::STATUS_WAITING ){
-				throw new Exception( "only waiting user can be approved" );
-			}
 			
 			$code = $this->_generTempLoginCode();
 			$userModel->update( array( "code" => $code , "status" => self::STATUS_APPROVAL ) , array( "id" => $id ) );
