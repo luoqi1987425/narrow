@@ -10,6 +10,22 @@
 <input type="hidden" name="id" value="<?php echo $this->message['id']; ?>"/>
 
 <p>
+<label><?php echo $this->_('User'); ?></label>
+<?php 
+	$userMod = Narrow_User_Factory::Factory();
+	$user = $userMod->getById( $this->message['user_id'] );
+	echo $user['first_name'];
+?>
+</p>
+
+<p>
+<label><?php echo $this->_('Create Time'); ?></label>
+<?php 
+	echo date( "Y-m-d" , $this->message['date_add'] );
+?>
+</p>
+
+<p>
 <label><?php echo $this->_('Content'); ?></label>
 <textarea id="content" name="content"><?php echo htmlspecialchars_decode(stripslashes($this->message['content'])); ?></textarea>
 </p>

@@ -40,6 +40,26 @@
 
 <p>
 	<label><?php echo $this->_('Action'); ?></label>
+	<?php if( intval($this->user['status'] ) === Narrow_User_Imple::STATUS_WAITING ): ?>
+		<a href="javascript:void(0);" onclick="reject(<?php echo $this->user['id']?>);"><?php echo $this->_('Reject');?></a> |
+		<a href="javascript:void(0);" onclick="approve(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
+		<a href="javascript:void(0);" onclick="approve(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> 
+		<?php endif;?>
+		<?php if( intval($this->user['status'] )  === Narrow_User_Imple::STATUS_APPROVAL ):?>
+			<a href="javascript:void(0);" onclick="reject(<?php echo $this->user['id']?>);"><?php echo $this->_('Reject');?></a>  | 	
+			<?php if( $this->user['role'] == Narrow_User_Imple::ROLE_USER ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);" ><?php echo $this->_('To Admin');?></a> 
+			<?php endif;?>
+			<?php if( $this->user['role'] == Narrow_User_Imple::ROLE_ADMIN ):?>
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"><?php echo $this->_('To Default');?></a> 
+			<?php endif;?>
+		<?php endif?>
+		
+		<?php if( intval($this->user['status'] )  === Narrow_User_Imple::STATUS_REJECTED ):?>
+			<a href="javascript:void(0);" onclick="approve(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
+			<a href="javascript:void(0);" onclick="approve(<?php echo $this->user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a>  
+			
+		<?php endif;?>
 	
 </p>
 
@@ -59,31 +79,21 @@
 		}
 	}
 
-	function verify( id , status ){
+	function approve( id , role ){
 		var answer = confirm("<?php echo $this->_("Are you sure you want to approve this user? ")?>");
 		if(answer){
-			location.href = __BASE_URL__ + "/admin/user/postverify/id/" + id + "/status/" + status;
+			location.href = __BASE_URL__ + "/admin/user/postapprove/id/" + id + "/role/" + role;
 		}
 	}
 
-	function change_role( id , status ){
+	function change_role( id , role ){
 		var answer = confirm("<?php echo $this->_("Are you sure you want to change user's role? ")?>");
 		if(answer){
-			location.href = __BASE_URL__ + "/admin/user/postchangerole/id/" + id + "/status/" + status;
+			location.href = __BASE_URL__ + "/admin/user/postrole/id/" + id + "/role/" + role;
 		}
 	}
 
 
-	function create(){
-		location.href = '<?php echo $this->url(array('action' => 'create' , 'controller' => 'location' , 'module' => 'admin'), null, true);?>';
-	}
-
-	function change_to_normal( id ){
-		var answer = confirm("<?php echo $this->_("Are you sure you want to enable this user? ")?>");
-		if(answer){
-			location.href = __BASE_URL__ + "/admin/user/postrejecttonormal/id/" + id ;
-		}
-	}
 </script>
 
 

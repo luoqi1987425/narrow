@@ -1,55 +1,63 @@
+<div id="error" style="display:none;"class="error">
+</div>
+
+<div id="panel">
+<h2>TV Mundipharma Register</h2>
 <form  onsubmit="return check_form();" class="form" id="form" action="<?php echo $this->url(array('action' => 'postregister' , 'controller' => 'index' ), 'default', true);?>" method="post">
 		
 		<p>
 			<label for="name"><?php echo $this->_("First Name")?>:*</label>
-			<input class="form_text" name="first_name" id="first_name" type="text" value="" />
-			<label class="error" id="first_name_error"></label>
+			<input class="text" name="first_name" id="first_name" type="text" value="" />
 		</p>
 		<p>
 			<label for="email"><?php echo $this->_("Last Name")?>:*</label>
-			<input class="form_text" name="last_name" id="last_name" type="text" value="" />
-			<label class="error" id="last_name_error"></label>
+			<input class="text" name="last_name" id="last_name" type="text" value="" />
 		</p>
 		
 		
 		<p>
 			<label for="email"><?php echo $this->_("E-mail")?>:*</label>
-			<input class="form_text" name="email" id="email" type="text" value="" />
-			<label class="error" id="email_error"></label>
+			<input class="text" name="email" id="email" type="text" value="" />
 		</p>
 		<p>
 			<label for="email"><?php echo $this->_("Confirm E-mail")?>:*</label>
-			<input class="form_text" name="email_confirm" id="email_confirm" type="text" value="" />
-			<label class="error" id="email_confirm_error"></label>
+			<input class="text" name="email_confirm" id="email_confirm" type="text" value="" />
 		</p>
 		
 		<p>
 			<label for="email"><?php echo $this->_("Job Desc")?>:*</label>
-			<textarea class="form_textarea" name="job_desc" id="job_desc"  ></textarea>
-			<label class="error" id="job_desc_error"></label>
+			<textarea class="textarea" name="job_desc" id="job_desc"  ></textarea>
 		</p>
 		
 		<p>
 			<label for="password"></label>
-			<input class="form_button" type="submit" value="<?php echo $this->_("Register")?>" />
+			<input class="submit" type="submit" value="<?php echo $this->_("Register")?>" />
+			<a class="link" href="<?php echo $this->url(array('action' => 'login' , 'controller' => 'index' ), 'default', true);?>" title="register"><?php echo $this->_("Back")?></a>
 		</p>
 		
-		<p>
-			<label for="password"></label>
-			<a href="<?php echo $this->url(array('action' => 'login' , 'controller' => 'index' ), 'default', true);?>" title="register"><?php echo $this->_("Back")?>
-				<img src="<?php echo $this->baseUrl()?>/images/bullet04.gif" alt="back"/>
-			</a>
-		</p>
 			
 		
 </form>
+</div>
 
 <script type="text/javascript">
 //<!-- 
 
 	function check_form(){
 
+		var first_name = $("#first_name").val();
+		var isEmpty = rocknoon.validate.is_empty( first_name );
+		if( isEmpty ){
+			show_error( "first_name_error" , '<?php echo $this->_("You should input your first name!");?>' );
+			return false;			
+		}
 
+		var last_name = $("#last_name").val();
+		var isEmpty = rocknoon.validate.is_empty( last_name );
+		if( isEmpty ){
+			show_error( "last_name_error" , '<?php echo $this->_("You should input your last name!");?>' );
+			return false;			
+		}
 
 		var email = $("#email").val();
 		var isEmail = rocknoon.validate.is_email( email );
@@ -65,19 +73,7 @@
 			return false;			
 		}
 
-		var first_name = $("#first_name").val();
-		var isEmpty = rocknoon.validate.is_empty( first_name );
-		if( isEmpty ){
-			show_error( "first_name_error" , '<?php echo $this->_("You should input your first name!");?>' );
-			return false;			
-		}
-
-		var last_name = $("#last_name").val();
-		var isEmpty = rocknoon.validate.is_empty( last_name );
-		if( isEmpty ){
-			show_error( "last_name_error" , '<?php echo $this->_("You should input your last name!");?>' );
-			return false;			
-		}
+		
 
 		var job_desc = $("#job_desc").val();
 		var isEmpty = rocknoon.validate.is_empty( job_desc );
@@ -101,12 +97,8 @@
 	}
 
 	function show_error( id , error ){
-		$("#email_error").html("");
-		$("#email_confirm_error").html("");
-		$("#first_name_error").html("");
-		$("#last_name_error").html("");
-		$("#job_desc_error").html("");
-		$("#" + id).html(error);
+		$("#error").html(error);
+		$("#error").show(300);
 
 	}
 

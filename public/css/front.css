@@ -13,85 +13,110 @@
 	clear:both;
 }
 
-
-.error{
-	color:#FF0000;
-}
-
 img{ 
 	border:none;
 }
 
 a{ 
 	text-decoration:none;
-	color:#333333;
 }
 
-html,body{ 
-	width:100%; 
+
+html body{
 	background:#F0EFEE; 
 	font-family:Tahoma,Verdana,arial,sans-serif; 
-	color:#808080; 
 	font-size:12px;
 }
 
-
-
-
-.form{
-	display:block;
+#wrapper{
 	margin:0 auto;
-	padding-bottom:20px;
-	width:400px;
+	width:500px;
+	padding-top:20px;
+}
+
+#panel{
+	
+	border:5px #D3D3D3 solid;
+	background-color:#FFFFFF;
+	padding:10px;
+}
+
+h2{
+	color:#1F88E0;
+	font-size:20pt;
+	margin:10px 0px;
+}
+
+div.error{
+	background-color:#FEBCBE;
+	border:1px solid #9B0008;
+	padding: 5px 5px 5px 10px;
+	color:#B62D35;
+	font-weight:bold;
 	font-size:13px;
+	height:auto;
+	margin: 10px 0px;
+}
+
+div.success{
+	background-color:#F1FAD4;
+	border:1px solid #5B864A;
+	padding: 5px 5px 5px 10px;
+	color:#5B864A;
+	font-weight:bold;
+	font-size:13px;
+	height:auto;
+	margin: 10px 0px;
 }
 
 .form p{
-	clear:both;
+	margin:8px 0px;
+}
+
+.form label{
 	display:block;
-	margin-top:10px;
+	font-size:13px;
+	margin-bottom:3px;
 }
 
-.form p label{
-	vertical-align:top;
-	display:inline-block;
-	width:140px;
+.form .text{
+	background-color:#F9F9F9;
+	border:1px solid #F0EFEE;
+	height:25px;
+	width:200px;
 }
 
-.form p label.error{
-	vertical-align:top;
-	display:inline-block;
-	width:300px;
-	color:#FF0000;
+.form .textarea{
+	background-color:#F9F9F9;
+	border:1px solid #F0EFEE;
+	height:100px;
+	width:400px;
 }
 
-.form_text{
-	border:1px solid #0062AC;
-	height:20px;
-	width:160px;
+.form .notice{
+	display:block;
+	color:#858585;
+	font-size:13px;
+	font-weight:bold;
+	padding:2px;
+	width:400px;
+	text-align:right;
 }
 
-.form_text{
-	border:1px solid #0062AC;
-	height:20px;
-	width:160px;
-}
-
-.form_textarea{
-	border:1px solid #0062AC;
-	height:80px;
-	width:160px;
-}
-
-.form_button{
-	color:#0062AC;
-	font-size:12px;
-	height:22px;
-	width:70px;
+.form .submit{
+	background-color:#F1FAD4;
+	border:1px solid #5B864A;
+	padding: 5px;
+	color:#5B864A;
+	font-weight:bold;
 }
 
 
-
+.form a.link{
+	margin:0px 5px;
+	color:#336397;
+	font-weight:bold;
+}
 
 
 

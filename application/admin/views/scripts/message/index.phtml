@@ -14,7 +14,6 @@
 
 <table width="100%">
 <tr class="head">
-    <td><?php echo $this->_('Id');?></td>
     <td><?php echo $this->_('Content');?></td>
     <td style="width:400px;"><?php echo $this->_('Action');?></td>
 </tr>
@@ -25,7 +24,6 @@
 foreach($this->messages as $message ):
 ?>
 <tr>
-	<td><?php echo $message['id']; ?></td>
 	<td><?php echo $message['content']; ?></td>
 	<td>
 		<a href="javascript:void(0);" onclick="message_edit(<?php echo $message['id']?>);"><?php echo $this->_('Edit');?></a> |

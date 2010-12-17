@@ -60,21 +60,21 @@ foreach($this->users as $user ):
 		<?php if( isset( $this->status ) && intval( $this->status ) === Narrow_User_Imple::STATUS_WAITING ): ?>
 		<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->_('Reject');?></a> |
 		<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
-		<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> | 
+		<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> 
 		<?php endif;?>
 		<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_APPROVAL ):?>
 			<a href="javascript:void(0);" onclick="reject(<?php echo $user['id']?>);"><?php echo $this->_('Reject');?></a>  | 	
 			<?php if( $user['role'] == Narrow_User_Imple::ROLE_USER ):?>
-				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);" ><?php echo $this->_('To Admin');?></a> |
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);" ><?php echo $this->_('To Admin');?></a> 
 			<?php endif;?>
 			<?php if( $user['role'] == Narrow_User_Imple::ROLE_ADMIN ):?>
-				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"><?php echo $this->_('To Default');?></a> |
+				<a href="javascript:void(0);" onclick="change_role(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"><?php echo $this->_('To Default');?></a> 
 			<?php endif;?>
 		<?php endif?>
 		
 		<?php if( intval( $this->status )  === Narrow_User_Imple::STATUS_REJECTED ):?>
 			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_USER?>);"> <?php echo $this->_('Default Approve');?></a> | 
-			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> | 
+			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> 
 			
 		<?php endif;?>
 	</td>

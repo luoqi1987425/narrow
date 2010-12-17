@@ -20,7 +20,7 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     
     public function loginAction(){
     	
-    	
+    	$this->assign( 'success' ,  $this->_getParam( "success" ));
     	
     }
     
@@ -54,7 +54,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     }
     
     public function messageAction(){
-
+		
+    	$this->assign( 'success' ,  $this->_getParam( "success" ));
     	
     }
     
@@ -114,8 +115,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$messageMod->save( $data );
     	
-    	$this->redirect( 'thanks' , 'index' , "default" , 
-    	array( "content" => "Successfully submit message" ) );
+    	$this->redirect( 'message' , 'index' , "default" , 
+    	array( "success" => "Successfully submit message" ) );
     	
     }
     
@@ -155,8 +156,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$user->register( $data );
     	
-    	$this->redirect( 'thanks' , 'index' , "default" , 
-    	array( "content" => "Thanks for your register. and we will have a approval work for your apply. if your information is approved, we will use email to notice you." ) );
+    	$this->redirect( 'login' , 'index' , "default" , 
+    	array( "success" => "Thanks for your register. and we will have a approval work for your apply. if your information is approved, we will use email to notice you." ) );
     	
     }
     
@@ -170,8 +171,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$user->changeLoginUserPassword( $password , $code );
     	
-    	$this->redirect( 'thanks' , 'index' , "default" , 
-    	array( "content" => "successfully change your password" ) );
+    	$this->redirect( 'message' , 'index' , "default" , 
+    	array( "success" => "successfully change your password" ) );
     	
     }
 

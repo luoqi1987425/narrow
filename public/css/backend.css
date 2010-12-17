@@ -15,7 +15,7 @@ h1 {
 	color: #000;
 }
 a {
-	color: #C01D2E
+	color: #0062AC
 }
 
 a:hover {
@@ -43,7 +43,7 @@ form fieldset fieldset{
 }
 
 form fieldset p.lang{
-	color: #C01D2E;
+	color: #0062AC;
 	font-size:16px;
 }
 
@@ -70,12 +70,12 @@ form fieldset p.lang{
 
 #body a:hover, #body a:active {
 	text-decoration: none;
-	color:#C01D2E;
+	color:#0062AC;
 	background:#FFF;
 }
 
 #body a.current {
-	color:#C01D2E;
+	color:#0062AC;
 	background:#FFF;
 }
 
@@ -111,7 +111,7 @@ form fieldset p.lang{
 }
 #sidebar li a:hover{
 	color:black;
-	border-bottom:#C01D2E 3px solid;
+	border-bottom:#0062AC 3px solid;
 	background-color: transparent ;
 }
 #sidebar ul.links li {
@@ -130,7 +130,7 @@ form fieldset p.lang{
 }
 
 .paginator li.current_item a{
-	color:#C01D2E;
+	color:#0062AC;
 }
 
 
@@ -149,6 +149,7 @@ fieldset{
 }
 tr.head{
 	text-transform:capitalize;
+	font-weight:bold;
 }
 .title{
 	font-weight:bold;
@@ -202,7 +203,7 @@ ul.list li{
 
 #customize{
 	
-	background:url("../images/logo.png") no-repeat scroll center transparent;
+	background:url("../images/logo.gif") no-repeat scroll center transparent;
 	margin:0 auto;
 	width:785px;
 	height:150px;
@@ -210,7 +211,7 @@ ul.list li{
 	position:relative;
 	z-index:999;
 	smargin-bottom:60px;
-	border-bottom: #C01D2E 9px solid;
+	border-bottom: #0062AC 9px solid;
 }
 
 #customize img{ float:left; margin-left:30px; margin-top:25px;}
@@ -240,12 +241,18 @@ background-color:white;
 
 td a:hover{ 
 background-color:white;
-color: #C01D2E;
+color: #0062AC;
 text-decoration:none;
 }
 
 .form p label{
 	width:200px;
 	display:inline-block;
+	vertical-align:top;
+}
+
+.form p textarea{
+	width:350px;
+	height:150px;
 }
 

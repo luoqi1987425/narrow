@@ -1,38 +1,40 @@
+<?php if( $this->success ) :?>
+<div class=success>
+	<?php echo( $this->success )?>
+</div>
+<?php endif;?>
+
+<div id="error" style="display:none;"class="error">
+</div>
+
+<div id="panel">
+<h2>TV Mundipharma Message</h2>
+
 <form onsubmit="return check_form();" class="form" action="<?php echo $this->url(array('action' => 'postmessage' , 'controller' => 'index' ), 'default', true);?>" method="post">
 		
 		<p>
 			<label for="comments"><?php echo $this->_("Content")?>:</label>
-			<textarea class="form_textarea" name="content" id="content"></textarea>
-			<label class="error" id="content_error"></label>
-			
-		</p>
-		
-		<p style="margin-top: -10px;">
-			<label></label>
-			The remain char is <span id="remain_word"></span>
-		</p>
-		
-		
-		
-		<p>
-			<label for="password"></label>
-			<input class="form_button" type="submit" value="<?php echo $this->_("Submit")?>" />
+			<textarea class="textarea" name="content" id="content"></textarea>
+			<span class="notice">The remain char is <span id="remain_word"></span></span>
 		</p>
 
 		<p>
 			<label for="password"></label>
-			<a href="<?php echo $this->url(array('action' => 'logout' , 'controller' => 'index' ), 'default', true);?>" title="logout"><?php echo $this->_("Logout")?></a>
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo $this->url(array('action' => 'password' , 'controller' => 'index' ), 'default', true);?>" title="logout"><?php echo $this->_("Change password")?></a>
+			<input class="submit" type="submit" value="<?php echo $this->_("Submit")?>" />
+			<a class="link" href="<?php echo $this->url(array('action' => 'logout' , 'controller' => 'index' ), 'default', true);?>" title="logout"><?php echo $this->_("Logout")?></a>
+			<a class="link" href="<?php echo $this->url(array('action' => 'password' , 'controller' => 'index' ), 'default', true);?>" title="change password"><?php echo $this->_("Change password")?></a>
 			<?php 
 			$userMod = Narrow_User_Factory::Factory();
 			if($userMod->isLoginUserRole( Narrow_User_Imple::ROLE_ADMIN )):
 			?>
-			&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'index' , "module" => "admin" ), 'default', true);?>" title="admin panel"><?php echo $this->_("Admin")?></a>
+			<a class="link" target="_blank" href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'index' , "module" => "admin" ), 'default', true);?>" title="admin panel"><?php echo $this->_("Admin")?></a>
 		
 			<?php endif;?>
 		</p>
+
 		
 </form>
+</div>
 
 <script type="text/javascript">
 //<!-- 
@@ -59,7 +61,8 @@
 
 	function show_error( id , error ){
 	
-		$("#" + id).html(error);
+		$("#error").html(error);
+		$("#error").show(300);
 
 	}
 
