@@ -31,6 +31,8 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     }
     
 	public function passwordAction(){
+		
+    	$this->_checkLogin();
     	
     	$code = $this->_getParam( 'code' );
     	
@@ -54,7 +56,7 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     }
     
     public function messageAction(){
-		
+		$this->_checkLogin();
     	$this->assign( 'success' ,  $this->_getParam( "success" ));
     	
     }
@@ -173,6 +175,18 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$this->redirect( 'message' , 'index' , "default" , 
     	array( "success" => "successfully change your password" ) );
+    	
+    }
+    
+    private function _checkLogin(){
+    	
+    	$user =  Narrow_User_Factory::Factory();
+    	
+    	$isLogin = $user->isLogined();
+    	
+    	if( !$isLogin ){
+    		$this->redirect( 'login' , 'index');
+    	}
     	
     }
 

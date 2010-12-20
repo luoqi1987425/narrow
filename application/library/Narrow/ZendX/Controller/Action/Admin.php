@@ -6,8 +6,16 @@
 	    public function preDispatch(){
 	    	
 	    	parent::preDispatch();
-	    	
+	    	$this->_appendBasicJs();
 	    	$this->_checkAdminPermission();
+	    }
+	    
+		private function _appendBasicJs(){
+	    	
+			$this->appendJs('js/jquery-1.4.min.js');
+			$this->appendJs('js/rocknoon/include.js');
+	    	$this->appendJs('js/jquery.textlimit.js');
+	    	
 	    }
 	
 

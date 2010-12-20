@@ -28,6 +28,7 @@
 <p>
 <label><?php echo $this->_('Content'); ?></label>
 <textarea id="content" name="content"><?php echo htmlspecialchars_decode(stripslashes($this->message['content'])); ?></textarea>
+<br/><label></label>remain chars <span id="remain_word"></span>
 </p>
 
 
@@ -38,3 +39,12 @@
 
 
 </form>
+
+<script type="text/javascript">
+//<!-- 
+
+	var message_limit = 160;
+	$('#content').textlimit('#remain_word',message_limit);
+
+//--> 
+</script>

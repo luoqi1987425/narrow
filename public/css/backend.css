@@ -151,6 +151,11 @@ tr.head{
 	text-transform:capitalize;
 	font-weight:bold;
 }
+
+tr.head td{
+	padding-bottom:8px;
+}
+
 .title{
 	font-weight:bold;
 	border:1px solid #999;
