@@ -342,7 +342,7 @@
 			
 			//plugin_data
 			$this->_plugin_datas['email'] 	= $user['email'];
-			$this->_plugin_datas['name'] 	= $data['first_name'] . "." .  $data['last_name'];;
+			$this->_plugin_datas['name'] 	= $user['first_name'] . "." .  $user['last_name'];;
 			$this->_plugin_datas['code']  	= $code;
 			
 		}

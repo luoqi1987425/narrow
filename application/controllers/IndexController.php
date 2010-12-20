@@ -32,8 +32,6 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     
 	public function passwordAction(){
 		
-    	$this->_checkLogin();
-    	
     	$code = $this->_getParam( 'code' );
     	
     	$userMod = Narrow_User_Factory::Factory();
@@ -46,9 +44,9 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
 	    		$this->render( 'passworderror' );	
 	    	}
 	    	$this->assign( 'code' , $code );
-    	} 
+    	}
     	
-    	
+    	$this->_checkLogin();
     	
     	
     	$this->view->headTitle( $this->_( self::TITLE ) );
