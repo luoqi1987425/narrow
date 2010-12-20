@@ -33,7 +33,7 @@
 			
 			//sepcify the grobal variable for lang
 			$this->_setParam( 'lang'   , $translate->getLocale() );
-			Zend_Registry::set('lang' ,  $translate->getLocale() );
+			Zend_Registry::set('lang' ,  "nl_NL" );
 		}
 
 	}
