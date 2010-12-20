@@ -69,7 +69,7 @@
 				$entry->setId($message['id']);
 				$entry->setDateModified	($message['date_add']);
 				$entry->setDateCreated	($message['date_add']);
-				$entry->setDescription( $userName . ":" . $message['content']);
+				$entry->setDescription( $user['first_name'] . ": " . $message['content']);
 				$entry->setContent(
 			    	$userName . ":" . $message['content']
 				);
