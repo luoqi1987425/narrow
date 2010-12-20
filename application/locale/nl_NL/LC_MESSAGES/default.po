@@ -1,0 +1,601 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-12 12:00+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: rocky <luoqi1987425@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: E:\\workspace\\Mundipharma\\application\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SearchPath-0: E:\\workspace\\Mundipharma\\application\n"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Admin.php:26
+msgid "Admin account does not exist"
+msgstr "Admin account bestaat niet"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Admin.php:31
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:46
+msgid "Incorrect password"
+msgstr "Bevestig wachtwoord"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:36
+msgid "This user does not exist"
+msgstr "Admin account bestaat niet"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:41
+msgid "This user has not been approved"
+msgstr ""
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:84
+msgid "Email already exists"
+msgstr "E-mail adres bestaat al"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:104
+msgid "Only logged in users can modify their profile information."
+msgstr "Alleen ingelogde gebruiker kan profielinformatie wijzigen"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:308
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:345
+msgid "User does not exist"
+msgstr "Arts bestaat niet"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:313
+msgid "Default administrator role cannot be changed"
+msgstr "Statndaard Admin kan de rol niet aanpassen"
+
+#: E:\workspace\Mundipharma\application/library/Mun/Doctor.php:349
+msgid "This user has not been rejected"
+msgstr "Arts is niet afgekeurd"
+
+#: E:\workspace\Mundipharma\application/library/Mun/File.php:15
+msgid "You do not have permission to delete this file"
+msgstr "U heeft geen rechten om het bestand te verwijderen"
+
+#: E:\workspace\Mundipharma\application/library/Mun/File.php:29
+msgid "You do not have permission to download this file"
+msgstr "U heeft geen rechten om het bestand te uploaden"
+
+#: E:\workspace\Mundipharma\application/library/Mun/File.php:126
+msgid "You do not have permission to upload files"
+msgstr "U heeft geen rechten om het bestand te uploaden"
+
+#: E:\workspace\Mundipharma\application/library/Mun/File.php:153
+msgid "You need to specify a file to upload"
+msgstr "Kies een bestand dat u wilt uploaden "
+
+#: E:\workspace\Mundipharma\application/library/Mun/News.php:75
+msgid "You do not have permission to delete this comment"
+msgstr "U heeft geen rechten om de reactie te verwijderen "
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:29
+msgid "Menu"
+msgstr "Menu"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:31
+msgid "Doctors"
+msgstr "Artsen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:32
+msgid "News"
+msgstr "Nieuws"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:33
+msgid "Article"
+msgstr "Artikelen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:34
+msgid "File"
+msgstr "Bestanden"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:35
+msgid "Static Cms"
+msgstr "Statische CMS"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/layout.phtml:36
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/admin/index.phtml:1
+msgid "Admin Panel"
+msgstr "Admin"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/admin/index.phtml:6
+msgid "New Password"
+msgstr "Nieuw wachtwoord"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/admin/index.phtml:11
+msgid "Confirm Password"
+msgstr "Bevestig Wachtwoord"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/admin/index.phtml:15
+msgid "Submit"
+msgstr "Bevestigen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/edit.phtml:1
+msgid "Article Edit Panel"
+msgstr "Artikel beheer"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/edit.phtml:13
+msgid "Please input a title!"
+msgstr "Vul een titel in"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:1
+msgid "Article Panel"
+msgstr "Artikel beheer"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:2
+msgid "Create"
+msgstr "Toevoegen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:11
+msgid "Title"
+msgstr "Titel"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:12
+msgid "Create Time"
+msgstr "Aanmaak datum"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:13
+msgid "Action"
+msgstr "Actie"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/article/index.phtml:25
+msgid "Edit"
+msgstr "Wijzigen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/cms/edit.phtml:1
+msgid "Static CMS Edit Panel"
+msgstr "Statische CMS Wijzigen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/cms/index.phtml:6
+msgid "Static CMS Panel"
+msgstr "Statische CMS"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/cms/index.phtml:11
+msgid "Static Cms Name"
+msgstr "Statische CMS Naam"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:1
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:1
+msgid "Doctor Panel"
+msgstr "Beheer Artsen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:11
+msgid "All"
+msgstr "Alles"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:18
+msgid "Waiting"
+msgstr "Wachten"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:25
+msgid "Approved"
+msgstr "Goedgekeurd"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:32
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:68
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:20
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:33
+msgid "Rejected"
+msgstr "In behandeling"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:40
+msgid "There is no doctor in this category."
+msgstr "Er is geen arts in deze categorie"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:45
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:28
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:12
+msgid "Name"
+msgstr "Naam"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:46
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:6
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:13
+msgid "Email"
+msgstr "E-mail"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:47
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:14
+msgid "Status"
+msgstr "Status"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:62
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:14
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:27
+msgid "Plus Doctor"
+msgstr "Plus Arts"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:64
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:16
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:29
+msgid "Regular Doctor"
+msgstr "Standaard Arts"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:66
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:18
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:31
+msgid "Admin"
+msgstr "Admin"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:70
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:22
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:35
+msgid "Disapproved"
+msgstr "Behandeling"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:75
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:41
+#: E:\workspace\Mundipharma\application/views/scripts/article/index.phtml:16
+msgid "View"
+msgstr "Bekijken"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:78
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:84
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:55
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:61
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:43
+msgid "Reject"
+msgstr "Afkeuren"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:79
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:56
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:44
+msgid "Verify Admin"
+msgstr "Goedkeuren Admin"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:80
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:57
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:45
+msgid "Verify Regular"
+msgstr "Goedkeuren Standaard"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:81
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:58
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:46
+msgid "Verify Plus"
+msgstr "Goedkeuren Plus"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:86
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:63
+msgid "To Admin"
+msgstr "Omzetten Admin"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:89
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:66
+msgid "To Regular"
+msgstr "Omzetten Standaard"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:92
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:69
+msgid "To Plus"
+msgstr "Omzetten Plus"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:98
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:75
+msgid "Enable"
+msgstr "Activeren"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:119
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:125
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:71
+msgid "Are you sure you want to reject this user? "
+msgstr "Weet u zeker dat u dit account wilt afkeuren?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:126
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:132
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:78
+msgid "Are you sure you want to approve this user? "
+msgstr "Weet u zeker dat u dit account wilt goedkeuren?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:133
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:139
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:85
+msgid "Are you sure you want to change user's role? "
+msgstr "Weet u zeker dat u de rol wilt wijzigen?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/index.phtml:145
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:151
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:97
+msgid "Are you sure you want to enable this user? "
+msgstr "Weet u zeker dat u dit account wilt activeren?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:11
+msgid "Role"
+msgstr "Rol"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:33
+msgid "Occupation"
+msgstr "Beroep"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:38
+msgid "Place Of Work"
+msgstr "Werkzaam bij"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:43
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/edit.phtml:8
+msgid "Comments"
+msgstr "Commentaar"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:85
+msgid "News Comments"
+msgstr "Nieuws Reacties"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/doctor/view.phtml:101
+msgid "Upload Files"
+msgstr "Bestanden uploaden"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/file/edit.phtml:1
+msgid "File Edit Panel"
+msgstr "Wijzig bestanden"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/file/index.phtml:1
+msgid "File Panel"
+msgstr "Beheer bestanden"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/file/index.phtml:12
+msgid "Owner"
+msgstr "Eigenaar"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/file/index.phtml:33
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/edit.phtml:28
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/file/index.phtml:56
+msgid "Are you sure you want to delete this file ?"
+msgstr "Weet u zeker dat u dit bestand wilt verwijderen?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:1
+msgid "Welcome to the Content Management System (CMS)"
+msgstr "Welkom bij het Mundi Pharma  CMS"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:7
+msgid "Doctors waitting for process"
+msgstr "Nog te verwerken"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:15
+msgid "Register Time"
+msgstr "Registreer datum"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/index.phtml:64
+msgid "No doctor need to be processed"
+msgstr "Niets te verwerken"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/login.phtml:29
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/login.phtml:33
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/index/login.phtml:43
+msgid "Login"
+msgstr "Login"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/edit.phtml:1
+msgid "News Edit Panel"
+msgstr "Wijzigen Nieuws "
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/edit.phtml:16
+msgid "Doctor"
+msgstr "Dokter"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/edit.phtml:55
+msgid "Are you sure you want to delete this comment? "
+msgstr "Weet u zeker dat u dit bestand wilt verwijderen?"
+
+#: E:\workspace\Mundipharma\application/admin/views/scripts/news/index.phtml:1
+msgid "News Panel"
+msgstr "Beheer Nieuws"
+
+#: E:\workspace\Mundipharma\application/views/scripts/layout.phtml:97
+msgid "Home"
+msgstr "Home"
+
+#: E:\workspace\Mundipharma\application/views/scripts/layout.phtml:100
+msgid "Profile"
+msgstr "Profiel"
+
+#: E:\workspace\Mundipharma\application/views/scripts/layout.phtml:101
+msgid "Forum"
+msgstr "Forum"
+
+#: E:\workspace\Mundipharma\application/views/scripts/layout.phtml:139
+msgid "Search keyword should not be empty!"
+msgstr "Zoekwoord mag niet leeg zijn"
+
+#: E:\workspace\Mundipharma\application/views/scripts/article/index.phtml:2
+msgid "Articles"
+msgstr "Artikelen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:9
+msgid "Upload File"
+msgstr "Upload bestand"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:12
+msgid "Click this button to upload your file"
+msgstr "Klik hier om bestand te uploaden"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:14
+msgid "upload"
+msgstr "uploaden"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:22
+msgid "Download Files"
+msgstr "Bestanden downloaden"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:34
+msgid "Plus Only"
+msgstr ""
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/index.phtml:36
+msgid "Download now"
+msgstr "Download nu"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/upload.phtml:10
+msgid "Description"
+msgstr "Beschrijving"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/upload.phtml:22
+msgid "Who can download"
+msgstr "Who can download"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/upload.phtml:47
+msgid "You should input file title!"
+msgstr "U dient een titel in te voeren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/upload.phtml:54
+msgid "You should input file description!"
+msgstr "U dient een beschrijving in te voeren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/file/upload.phtml:61
+msgid "You should select the file!"
+msgstr "U dient een bestand te selecteren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/index.phtml:11
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:4
+#: E:\workspace\Mundipharma\application/views/scripts/profile/index.phtml:5
+msgid "E-mail"
+msgstr "E-mail"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/index.phtml:19
+msgid "New Here?"
+msgstr "Nieuw hier?"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/index.phtml:19
+msgid "Sign up"
+msgstr "Aanmelden"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/index.phtml:42
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:58
+msgid "You should input a right email address!"
+msgstr "U dient een geldig e-mail adres in te voeren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/index.phtml:49
+msgid "You should input password!"
+msgstr "u dient een wachtwoord in te voeren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/password.phtml:4
+msgid "It's your first time Login. you can change your password"
+msgstr "Dit is de eerste keer dat u inlogt. U dient uw wachtwoord te wijzigen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/password.phtml:20
+#: E:\workspace\Mundipharma\application/views/scripts/profile/index.phtml:46
+msgid "Modify"
+msgstr "Wijzigen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/password.phtml:35
+msgid "You should input a new password"
+msgstr "U dient een nieuw wachtwoord in te voeren"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/password.phtml:41
+#: E:\workspace\Mundipharma\application/views/scripts/profile/index.phtml:60
+msgid "Password and confirmPassword should be same."
+msgstr "Wachtwoorden moeten overeenkomen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:31
+msgid "Register"
+msgstr "Aanmelden"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:36
+msgid "Back"
+msgstr "Terug"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:65
+msgid "You should input your name!"
+msgstr "U dient uw naam in te vullen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:72
+#, fuzzy
+msgid "You should input your occupation!"
+msgstr "U dient uw naam in te vullen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:79
+#, fuzzy
+msgid "You should input your place of work!"
+msgstr "U dient uw naam in te vullen"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/register.phtml:110
+msgid "Email already exist!"
+msgstr "E-mail adres bestaat al"
+
+#: E:\workspace\Mundipharma\application/views/scripts/login/thanks.phtml:9
+msgid "Go Back to Mundipharma"
+msgstr "Terug naar Mundi Pharma"
+
+#: E:\workspace\Mundipharma\application/views/scripts/news/view.phtml:28
+msgid "Post a new comment"
+msgstr "Plaats een reactie"
+
+#: E:\workspace\Mundipharma\application/views/scripts/news/view.phtml:49
+msgid "Comment should not be empty"
+msgstr "Reactieveld kan niet leeg zijn"
+
+#: E:\workspace\Mundipharma\application/views/scripts/profile/index.phtml:27
+msgid "Confirm password"
+msgstr "Bevestig wachtwoord"
+
+#: E:\workspace\Mundipharma\application/views/scripts/profile/success.phtml:4
+msgid "Modify Success!"
+msgstr "Wijziging succesvol"
+
+#: E:\workspace\Mundipharma\application/views/scripts/search/index.phtml:25
+msgid "download"
+msgstr "download"
+
+#: E:\workspace\Mundipharma\application/views/scripts/search/index.phtml:46
+msgid "Sorry, There is no results!"
+msgstr "Er zijn geen resultaten"
+
+#: E:\workspace\Mundipharma\application/configs/form_article.ini:18
+#: E:\workspace\Mundipharma\application/configs/form_cms_edit.ini:15
+#: E:\workspace\Mundipharma\application/configs/form_news.ini:18
+msgid "Content"
+msgstr "Inhoud"
+
+#: E:\workspace\Mundipharma\application/configs/form_article.ini:23
+#: E:\workspace\Mundipharma\application/configs/form_cms_edit.ini:20
+#: E:\workspace\Mundipharma\application/configs/form_file.ini:39
+#: E:\workspace\Mundipharma\application/configs/form_news.ini:23
+msgid "Save"
+msgstr "Opslaan"
+
+#: E:\workspace\Mundipharma\application/configs/mun.ini:13
+msgid "English"
+msgstr "Engels"
+
+#: E:\workspace\Mundipharma\application/configs/mun.ini:13
+msgid "Dutch"
+msgstr "Nederlands"
+
+#: E:\workspace\Mundipharma\application/configs/mun.ini:24
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
+
+#: E:\workspace\Mundipharma\application/configs/mun.ini:24
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+#~ msgid "Password is wrong"
+#~ msgstr "Onjuist wachtwoord"
+
+#~ msgid "Doctor account do not exist"
+#~ msgstr "Arts account bestaat niet"
+
+#~ msgid "Doctor account isn't authorised"
+#~ msgstr "Arts accounts is niet geautoriseerd"
+
+#~ msgid "Sorry,Email Exist."
+#~ msgstr "E-mail adres bestaat al"
+
+#~ msgid "Thanks :) Please wait for our response email."
+#~ msgstr "Bedankt. U ontvangt een bevestiging e-mail van ons"
