@@ -18,29 +18,36 @@
 				throw new Exception( "sorry you can't get messages, because the signiture is not right" ); 
 			}
 			
+			
+			$userMod = Narrow_User_Factory::Factory();
+			
 			$conditions = array();
 			$conditions['date_add'] = array( "min" , time() - (3600 * 24)  );
 			
 			$order = "date_add DESC";
 			
 			$messages =  $this->gets( $conditions , $order , 1 , 10 );
+			
+			
 
 			/**
 			  * Create the parent feed
 			  */
+			$currentLink = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER["REQUEST_URI"];
+			
 			$feed = new Zend_Feed_Writer_Feed();
 			
-			$feed->setTitle('Rocky\'s Blog');
-			$feed->setLink('http://www.rocknnon.com');
-			$feed->setFeedLink('http://www.rocknnon.com/rss', 'rss');
+			$feed->setTitle('TV Mundipharma');
+			$feed->setLink($currentLink);
+			$feed->setFeedLink($currentLink, 'rss');
 			$feed->addAuthor(array(
-			    'name'  => 'Paddy',
-			    'email' => 'paddy@example.com',
-			    'uri'   => 'http://www.example.com',
+			    'name'  => 'mundipharma',
+			    'email' => 'admin@mundipharma.nl',
+			    'uri'   => $currentLink,
 			));
 			$feed->setDateModified(time());
 			$feed->addHub('http://pubsubhubbub.appspot.com/');
-			$feed->setDescription( "hello" );
+			$feed->setDescription( "TV Mundipharma" );
 			 
 			/**
 			 * Add one or more entries. Note that entries must
@@ -48,19 +55,23 @@
 			 */
 			foreach( $messages as $message ){
 				
+				$user = $userMod->getById( $message['user_id'] );
+				$userName = $user['first_name'] . " " . $user['last_name'];
+				
 				$entry = $feed->createEntry();
-				$entry->setTitle('TV Mun');
-				$entry->setLink('http://www.example.com/all-your-base-are-belong-to-us');
+				$entry->setTitle('TV Mundipharma');
+				$entry->setLink($currentLink);
 				$entry->addAuthor(array(
-				    'name'  => 'Rocky',
-				    'email' => 'luoqi.rocky@gmail.com',
-				    'uri'   => 'http://www.rocknoon.com',
+				    'name'  => $userName,
+				    'email' => $user["email"],
+				    'uri'   => $currentLink,
 					));
+				$entry->setId($message['id']);
 				$entry->setDateModified	($message['date_add']);
 				$entry->setDateCreated	($message['date_add']);
-				$entry->setDescription($message['content']);
+				$entry->setDescription( $userName . ":" . $message['content']);
 				$entry->setContent(
-			    	$message['content']
+			    	$userName . ":" . $message['content']
 				);
 				$feed->addEntry($entry);
 				

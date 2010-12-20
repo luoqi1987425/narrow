@@ -18,6 +18,13 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
         }
     }
     
+    public function testAction(){
+    	
+    	dump( $_SERVER );
+    	die();
+    	
+    }
+    
     public function loginAction(){
     	
     	$this->assign( 'success' ,  $this->_getParam( "success" ));
@@ -78,7 +85,6 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	try{
     		$out = $messageMod->getsRssOutput($sign);
     	}catch(Exception $ex){
-    		
     		$out = "<xml>".$ex->getMessage()."</xml>";
     		
     	}
