@@ -12,10 +12,12 @@
 	
 		public function getsRssOutput( $sign ) {
 			
+			$translate = Zend_Registry::get( 'translate');
+			
 			$right_sign	= Narrow::GetInstance()->config->message->rss_sign;
 			
 			if( $right_sign != $sign  ){
-				throw new Exception( "sorry you can't get messages, because the signiture is not right" ); 
+				throw new Exception( $translate->_("sorry you can't get messages, because the signiture is not right") ); 
 			}
 			
 			

@@ -25,7 +25,7 @@
 		</p>
 		
 		<p>
-			<label for="email"><?php echo $this->_("Job Desc")?>:*</label>
+			<label for="email"><?php echo $this->_("Job Description")?>:*</label>
 			<textarea class="textarea" name="job_desc" id="job_desc"  ></textarea>
 		</p>
 		
@@ -78,7 +78,7 @@
 		var job_desc = $("#job_desc").val();
 		var isEmpty = rocknoon.validate.is_empty( job_desc );
 		if( isEmpty ){
-			show_error( "job_desc_error" , '<?php echo $this->_("You should input your job_desc!");?>' );
+			show_error( "job_desc_error" , '<?php echo $this->_("You should input your job description!");?>' );
 			return false;			
 		}
 

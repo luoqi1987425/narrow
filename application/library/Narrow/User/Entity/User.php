@@ -4,27 +4,29 @@
 		
 		protected function _getOffset( $offset ){
 		  	
+			$translate 	= Zend_Registry::get( 'translate');
+			
 		  	switch( $offset ){
 					
 				case 'status_name':
 					
 					if(  $this->_coll['status'] == Narrow_User_Imple::STATUS_WAITING ){
-						return "Waiting";
+						return $translate->_("Waiting");
 					}
 					elseif(  $this->_coll['status'] == Narrow_User_Imple::STATUS_APPROVAL  ){
-						return "Approved";
+						return $translate->_("Approved");
 					}
 					elseif(  $this->_coll['status'] == Narrow_User_Imple::STATUS_REJECTED  ){
-						return "Rejected";
+						return $translate->_("Rejected");
 					}
 					break;
 						
 				case 'role_name':
 					
 					if(  $this->_coll['role'] == Narrow_User_Imple::ROLE_ADMIN ){
-						return "Admin";
+						return $translate->_("Admin");
 					}elseif(  $this->_coll['role'] == Narrow_User_Imple::ROLE_USER  ){
-						return "Default";
+						return $translate->_("Default");
 					}
 					break;
 					

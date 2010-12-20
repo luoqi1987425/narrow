@@ -267,11 +267,11 @@
 			$user = $userModel->getOneByConditions( array( 'code' => $code ) );
 			
 			if( !$user ){
-				throw new Exception( $translate->_("This link is expiration") , 1 );
+				throw new Exception( $translate->_("This link is expired") , 1 );
 			}
 			
 			if( $user['is_code_used'] ){
-				throw new Exception( $translate->_("This link is expiration") , 1 );
+				throw new Exception( $translate->_("This link is expired") , 1 );
 			}
 			
 			$user = new Narrow_User_Entity_User( $user );
@@ -311,14 +311,15 @@
 		private function _status( $id, $status ){
 			
 			$userModel = Narrow_User_Model_User::getInstance();
+			$translate = Zend_Registry::get( 'translate');
 			$user = $userModel->getOneByConditions( array( 'id' => $id ) );
 			
 			if( !$user ){
-				throw new Exception( "user do not exist" );
+				throw new Exception( $translate->_("user do not exist") );
 			}
 			
 			if( $user['email'] == Narrow::GetInstance()->config->user->default_admin->username ){
-				throw new Exception( "default user can't be changed the status" );
+				throw new Exception( $translate->_("default administrator's status can't be changed") );
 			}
 			
 			$userModel->update( array( "status" => $status ) , array( "id" => $id ) );
@@ -354,11 +355,11 @@
 			$user = $userModel->getOneByConditions( array( 'id' => $id ) );
 			
 			if( !$user ){
-				throw new Exception( "user do not exist" );
+				throw new Exception( $translate->_("user do not exist") );
 			}
 			
 			if( $user['email'] == Narrow::GetInstance()->config->user->default_admin->username ){
-				throw new Exception( "default user can't be changed the role" );
+				throw new Exception( $translate->_("default administrator's role can't be changed") );
 			}
 			
 			$userModel->update( array( "role" => $role ) , array( "id" => $id ) );

@@ -18,13 +18,6 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
         }
     }
     
-    public function testAction(){
-    	
-    	dump( $_SERVER );
-    	die();
-    	
-    }
-    
     public function loginAction(){
     	
     	$this->assign( 'success' ,  $this->_getParam( "success" ));
@@ -108,10 +101,9 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	
     	$data = array();
     	
-    	
-    	
     	$messageMod = Narrow_Message_Factory::Factory();
     	$userMod 	= Narrow_User_Factory::Factory();
+    	$translate 	= Zend_Registry::get( 'translate');
     	
     	$loginUser = $userMod->getLoginUser();
     	
@@ -122,7 +114,7 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	$messageMod->save( $data );
     	
     	$this->redirect( 'message' , 'index' , "default" , 
-    	array( "success" => "Successfully submit message" ) );
+    	array( "success" => $translate->_("Successfully submit message") ) );
     	
     }
     
@@ -152,7 +144,7 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
 	public function postregisterAction(){
     	
     	$user =  Narrow_User_Factory::Factory();
-    	
+    	$translate 	= Zend_Registry::get( 'translate');
     	
     	$data = array();
     	$data['email'] = $this->_getParam( 'email' );
@@ -163,12 +155,13 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	$user->register( $data );
     	
     	$this->redirect( 'login' , 'index' , "default" , 
-    	array( "success" => "Thanks for your register. and we will have a approval work for your apply. if your information is approved, we will use email to notice you." ) );
+    	array( "success" => $translate->_("Thanks for your register. and please wait for our approval work. As long as your apply is approved, we will send email to notice you.") ) );
     	
     }
     
 	public function postchangepasswordAction(){
     	
+		$translate 	= Zend_Registry::get( 'translate');
     	$user =  Narrow_User_Factory::Factory();
     	
     	
@@ -178,7 +171,7 @@ class IndexController extends Narrow_ZendX_Controller_Action_Front
     	$user->changeLoginUserPassword( $password , $code );
     	
     	$this->redirect( 'message' , 'index' , "default" , 
-    	array( "success" => "successfully change your password" ) );
+    	array( "success" => $translate->_("successfully change your password") ) );
     	
     }
     
