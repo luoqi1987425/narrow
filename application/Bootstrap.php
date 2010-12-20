@@ -42,17 +42,39 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$this->_front->addControllerDirectory(APPLICATION_PATH . '/admin/controllers', 'admin');
     }
     
-    
-	protected function _initFakeTranslate(){
+	protected function _initTranslate(){
 		
-		$view = Zend_Registry::get( 'view' );
+		try{
+			@$translate_array = new Zend_Translate('WeFlex_ZendX_Translate_Adapter_ArrayPlus', realpath(dirname(__FILE__).DS.'resources'.DS.'languages'), null, array('scan' => Zend_Translate::LOCALE_DIRECTORY));
+			@$translate = new Zend_Translate('WeFlex_ZendX_Translate_Adapter_GettextPlus', realpath(dirname(__FILE__).DS.'locale'), null, array('scan' => Zend_Translate::LOCALE_DIRECTORY));
+		}catch (Exception $e) {
+			throw $e;
+		}
 		
-		$translate = new WeFlex_ZendX_FakeTranslator();
-		$translateHelper = new WeFlex_ZendX_View_Helper_Translate( $translate );
-		$view->registerHelper( $translateHelper , '_' );
 		
+		
+		
+		@$translate->addData($translate_array->getData());
+		Zend_Registry::get( 'view' )->translate = $translate;
 		Zend_Registry::set( 'translate' , $translate );
+		@Zend_Validate_Abstract::setDefaultTranslator($translate);
+		
+		//translate
+		$translateHelper = new WeFlex_ZendX_View_Helper_Translate( Zend_Registry::get( 'translate' ) );
+		Zend_Registry::get( 'view' )->registerHelper( $translateHelper , '_' );
     }
+    
+    
+//	protected function _initFakeTranslate(){
+//		
+//		$view = Zend_Registry::get( 'view' );
+//		
+//		$translate = new WeFlex_ZendX_FakeTranslator();
+//		$translateHelper = new WeFlex_ZendX_View_Helper_Translate( $translate );
+//		$view->registerHelper( $translateHelper , '_' );
+//		
+//		Zend_Registry::set( 'translate' , $translate );
+//    }
     
     
     
