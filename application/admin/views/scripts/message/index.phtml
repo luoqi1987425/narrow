@@ -14,7 +14,7 @@
 
 <table width="100%">
 <tr class="head">
-    <td style="width:400px;"><?php echo $this->_('Content');?></td>
+    <td style="width:300px;"><?php echo $this->_('Content');?></td>
     <td><?php echo $this->_('Author');?></td>
     <td><?php echo $this->_('Time');?></td>
     <td><?php echo $this->_('Action');?></td>
@@ -30,7 +30,7 @@ foreach($this->messages as $message ):
 	<td><?php 
 	$userMod = Narrow_User_Factory::Factory();
 	$user = $userMod->getById( $message['user_id'] );
-	echo $user['first_name'].".".$user['last_name']; ?></td>
+	echo $user['first_name']." ".$user['last_name']; ?></td>
 	<td><?php echo date( "Y-m-d" , $message['date_add'] ); ?></td>
 	<td>
 		<a href="javascript:void(0);" onclick="message_edit(<?php echo $message['id']?>);"><?php echo $this->_('Edit');?></a> |
