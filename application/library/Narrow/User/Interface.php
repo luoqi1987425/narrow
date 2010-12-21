@@ -4,6 +4,8 @@
 		
 		public function register( $data );
 		
+		public function edit( $data );
+		
 		public function login( $email , $password );
 		
 		public function loginFromCode($code);

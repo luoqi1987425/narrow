@@ -68,6 +68,12 @@
 			$broker->afterUserRegister($this->_plugin_datas);
 			$this->_resetPluginData();
 		}
+	
+	
+		public function edit($data) {
+			$this->_edit($data);
+		}
+
 		
 		
 		public function role($id, $role) {
@@ -276,6 +282,33 @@
 			
 			$user = new Narrow_User_Entity_User( $user );
 			$this->_setSession( $user );
+			
+		}
+		
+		private function _edit( $data ){
+			
+			$userModel = Narrow_User_Model_User::getInstance();
+			$translate = Zend_Registry::get( 'translate');
+			
+			$id = $data['id'];
+			unset($data['id']);
+			
+			
+			//check email
+			$beforeUser = $userModel->getOneByConditions( array( "id" => $id ) );
+			if( $data['email'] == $beforeUser['email'] || !$data['email'] ){
+				unset( $data['email'] );
+			}else{
+				$isExist = $this->_isEmailExist( $data['email'] );
+				if( $isExist ){
+					//_("Sorry,Email Exist.")
+					throw new Exception( $translate->_("Email already exists") );
+				}
+			}
+			
+			if( $id ){
+				$userModel->update( $data , array( "id" => $id ) );
+			}
 			
 		}
 		

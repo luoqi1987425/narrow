@@ -50,7 +50,7 @@ href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' ,
 foreach($this->users as $user ):
 ?>
 <tr>
-	<td><?php echo $user['first_name']; ?></td>
+	<td><?php echo $user['first_name'] . "." . $user['last_name']; ?></td>
 	<td><?php echo $user['email']; ?></td>
 	<td><?php echo $user['status_name'];?></td>
 	<td><?php echo $user['role_name'];?></td>
@@ -77,6 +77,8 @@ foreach($this->users as $user ):
 			<a href="javascript:void(0);" onclick="approve(<?php echo $user['id']?> , <?php echo Narrow_User_Imple::ROLE_ADMIN?>);"><?php echo $this->_('Admin Approve');?></a> 
 			
 		<?php endif;?>
+		
+		 | <a href="javascript:void(0);" onclick="edit_user(<?php echo $user['id']?>);"><?php echo $this->_('Edit');?></a>
 	</td>
 </tr>
 <?php
@@ -113,6 +115,12 @@ endforeach;
 		if(answer){
 			location.href = __BASE_URL__ + "/admin/user/postrole/id/" + id + "/role/" + role;
 		}
+	}
+
+	function edit_user( id ){
+		
+		location.href = __BASE_URL__ + "/admin/user/edit/id/" + id;
+
 	}
 
 

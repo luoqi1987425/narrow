@@ -32,6 +32,18 @@
 	    	$this->view->headTitle( $this->_( self::TITLE ) );
 		}
 		
+		public function editAction(){
+			
+			$id = $this->_getParam( 'id' );
+			
+			$userMod = Narrow_User_Factory::Factory();
+			
+			$user   = $userMod->getById( $id );
+			
+			$this->assign( 'user' , $user );
+			
+		}
+		
 		public function viewAction(){
 			
 			$id = $this->_getParam( 'id' );
@@ -41,6 +53,23 @@
 			$user   = $userMod->getById( $id );
 			
 			$this->assign( 'user' , $user );
+			
+		}
+		
+		public function postsaveAction(){
+			
+			$data = array();
+			$data['id'] = $this->_getParam( 'id' );
+			$data['email'] = $this->_getParam( 'email' );
+			$data['first_name'] = $this->_getParam( 'first_name' );
+			$data['last_name'] 	= $this->_getParam( 'last_name' );
+			$data['job_desc'] 	= $this->_getParam( 'job_desc' );
+			
+			$userMod = Narrow_User_Factory::Factory();
+			
+			$userMod->edit( $data );
+			
+			$this->redirect( 'index' , 'user' , 'admin' , array( 'status' => Narrow_User_Imple::STATUS_WAITING ) );
 			
 		}
 		

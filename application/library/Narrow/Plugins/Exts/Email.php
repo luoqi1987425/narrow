@@ -12,7 +12,7 @@
 			$admins = $userMod->gets( array( 'role' => Narrow_User_Imple::ROLE_ADMIN ) );
 			
 			$emailMod->register( $data['email'] , $data['name'] );
-			$emailMod->registerForAdmin( $admins , $data['name'] , $data['job_desc']  );
+			$emailMod->registerForAdmin( $data['email'] , $admins , $data['name'] , $data['job_desc']  );
 			
 		}
 		

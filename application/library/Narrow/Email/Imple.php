@@ -20,10 +20,11 @@
 		}
 		
 		
-		public function registerForAdmin( $admins , $name , $job_desc ) {
+		public function registerForAdmin( $email , $admins , $name , $job_desc ) {
 			
 			
-			$content = $this->_generateAdminSendContent( $name  , $job_desc  );
+			$content = $this->_generateAdminSendContent( $email , $name  , $job_desc  );
+			
 			$title = "TV Mundipharma";
 			
 			foreach( $admins as $admin ){
@@ -44,7 +45,7 @@
 			
 		}
 		
-		private function _generateAdminSendContent( $name , $job_desc  ){
+		private function _generateAdminSendContent( $email , $name , $job_desc  ){
 			
 			
 			$url = WeFlex_Util::GetFullUrl( array( "action" => "index" , "controller" => "index" ,  "module" => "admin" ) , "default" );
@@ -53,6 +54,7 @@
 
 			A new user has registered on the Mundipharma doctor site and is requesting approval to join. Please login to the admin console and confirm or deny.<br/><br/>
 			
+			User Email: ".$email."<br/>
 			User Name: ".$name."<br/>
 			User Job Description: ".$job_desc."<br/>
 			<br/>

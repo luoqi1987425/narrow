@@ -41,6 +41,17 @@ html body{
 	padding:10px;
 }
 
+#logo{
+	margin:0 auto;
+	margin-bottom:10px;
+}
+
+#logo img{
+	display:block;
+	margin:0 auto;
+}
+
+
 h2{
 	color:#1F88E0;
 	font-size:20pt;
@@ -109,6 +120,7 @@ div.success{
 	padding: 5px;
 	color:#5B864A;
 	font-weight:bold;
+	cursor:pointer;
 }
 
 

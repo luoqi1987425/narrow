@@ -1,104 +1,91 @@
-<div id="error" style="display:none;"class="error">
-</div>
+<h3><?php echo $this->_('User View Panel'); ?></h3>
+<br/><br/>
 
-<div id="panel">
-<h2>TV Mundipharma Register</h2>
-<form  onsubmit="return check_form();" class="form" id="form" action="<?php echo $this->url(array('action' => 'postregister' , 'controller' => 'index' ), 'default', true);?>" method="post">
-		
+<form class="form" onsubmit="return check_form();" action="<?php echo $this->url(array(
+		'controller' => 'user', 
+		'action' => 'postsave', 
+		'module' => 'admin'
+		), null , true);?>" method="post" id="form">
+
+<input type="hidden" name="id" value="<?php echo $this->user['id']; ?>"/>
+
+
 		<p>
 			<label for="name"><?php echo $this->_("First Name")?>:*</label>
-			<input class="text" name="first_name" id="first_name" type="text" value="" />
+			<input class="text" name="first_name" id="first_name" type="text" value="<?php echo $this->user['first_name']?>" />
 		</p>
 		<p>
 			<label for="email"><?php echo $this->_("Last Name")?>:*</label>
-			<input class="text" name="last_name" id="last_name" type="text" value="" />
+			<input class="text" name="last_name" id="last_name" type="text" value="<?php echo $this->user['last_name']?>" />
 		</p>
 		
 		
 		<p>
 			<label for="email"><?php echo $this->_("E-mail")?>:*</label>
-			<input class="text" name="email" id="email" type="text" value="" />
-		</p>
-		<p>
-			<label for="email"><?php echo $this->_("Confirm E-mail")?>:*</label>
-			<input class="text" name="email_confirm" id="email_confirm" type="text" value="" />
+			<input class="text" name="email" id="email" type="text" value="<?php echo $this->user['email']?>" />
 		</p>
 		
 		<p>
 			<label for="email"><?php echo $this->_("Job Description")?>:*</label>
-			<input type="text" class="text" name="job_desc" id="job_desc" value="" >
+			<input type="text" class="text" name="job_desc" id="job_desc" value="<?php echo $this->user['job_desc']?>" >
 		</p>
-		
+
 		<p>
-			<label for="password"></label>
-			<input class="submit" type="submit" value="<?php echo $this->_("Register")?>" />
-			<a class="link" href="<?php echo $this->url(array('action' => 'login' , 'controller' => 'index' ), 'default', true);?>" title="register"><?php echo $this->_("Back")?></a>
+		<label></label>
+		<input type="submit" value="<?php echo $this->_('Submit'); ?>" />
 		</p>
-		
-			
-		
+
+
 </form>
-</div>
 
 <script type="text/javascript">
 //<!-- 
 
 	function check_form(){
-
+	
 		var first_name = $("#first_name").val();
 		var isEmpty = rocknoon.validate.is_empty( first_name );
 		if( isEmpty ){
 			show_error( "first_name_error" , '<?php echo $this->_("You should input your first name!");?>' );
 			return false;			
 		}
-
+	
 		var last_name = $("#last_name").val();
 		var isEmpty = rocknoon.validate.is_empty( last_name );
 		if( isEmpty ){
 			show_error( "last_name_error" , '<?php echo $this->_("You should input your last name!");?>' );
 			return false;			
 		}
-
+	
 		var email = $("#email").val();
 		var isEmail = rocknoon.validate.is_email( email );
 		if( !isEmail ){
 			show_error( "email_error" , '<?php echo $this->_("You should input a right email address!");?>' );
 			return false;			
 		}
-
-		var email_confirm = $("#email_confirm").val();
-		var isSame = rocknoon.validate.is_same( email , email_confirm );
-		if( !isSame ){
-			show_error( "email_confirm_error" , '<?php echo $this->_("confirmed email address is not right!");?>' );
-			return false;			
-		}
-
+	
 		
-
+	
 		var job_desc = $("#job_desc").val();
 		var isEmpty = rocknoon.validate.is_empty( job_desc );
 		if( isEmpty ){
 			show_error( "job_desc_error" , '<?php echo $this->_("You should input your job description!");?>' );
 			return false;			
 		}
-
-
-		z
-
+	
 		
-
-		return false;
+	
+		return true;
 		
 	}
-
+	
 	function show_error( id , error ){
-		$("#error").html(error);
-		$("#error").show(300);
-
+		alert( error );
+	
 	}
-
+	
 	function on_complete_check_email( response ){
-
+	
 		var rst = rocknoon.ajax.prase(response);
 		if( rst.status ){
 			if( rst.info == 1 ){
@@ -111,6 +98,7 @@
 		}
 		
 	}
+	
 
 //--> 
 </script>

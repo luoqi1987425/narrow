@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 16:47+0800\n"
+"POT-Creation-Date: 2010-12-21 11:44+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: rocky <luoqi1987425@gmail.com>\n"
 "Language-Team: \n"
@@ -32,37 +32,38 @@ msgstr ""
 msgid "sorry you can't get messages, because the signiture is not right"
 msgstr ""
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:244
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:250
 msgid "This user does not exist"
 msgstr "account bestaat niet"
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:248
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:254
 msgid "This user has not been approved"
 msgstr ""
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:252
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:258
 msgid "Incorrect password"
 msgstr "Bevestig wachtwoord"
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:270
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:274
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:276
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:280
 msgid "This link is expired"
 msgstr ""
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:291
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:305
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:324
 msgid "Email already exists"
 msgstr "E-mail adres bestaat al"
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:318
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:358
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:351
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:391
 msgid "user do not exist"
 msgstr "Admin account bestaat niet"
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:322
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:355
 msgid "default administrator's status can't be changed"
 msgstr ""
 
-#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:362
+#: E:\workspace\narrow\application/library/Narrow/User/Imple.php:395
 msgid "default administrator's role can't be changed"
 msgstr ""
 
@@ -108,16 +109,27 @@ msgid "Message View Panel"
 msgstr ""
 
 #: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:22
+#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:41
+#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:6
+msgid "Email"
+msgstr "E-mail"
+
+#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:29
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:37
 msgid "Create Time"
 msgstr "Aanmaak datum"
 
-#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:29
+#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:36
 #: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:17
 msgid "Content"
 msgstr "Inhoud"
 
-#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:37
+#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:38
+msgid "remain chars"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/message/edit.phtml:44
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:35
 msgid "Submit"
 msgstr "Bevestigen"
 
@@ -130,22 +142,74 @@ msgid "There is no messages."
 msgstr ""
 
 #: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:18
+msgid "Author"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:19
+msgid "Time"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:20
 #: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:44
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:42
 msgid "Action"
 msgstr "Actie"
 
-#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:29
+#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:36
+#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:81
 msgid "Edit"
 msgstr "Wijzigen"
 
-#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:30
+#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:37
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:55
+#: E:\workspace\narrow\application/admin/views/scripts/message/index.phtml:62
 msgid "Are you sure you want to delete this message? "
 msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:1
+msgid "User View Panel"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:14
+#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:21
+msgid "First Name"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:18
+#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:26
+msgid "Last Name"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:24
+msgid "E-mail"
+msgstr "E-mail"
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:29
+#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:32
+msgid "Job Description"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:49
+msgid "You should input your first name!"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:56
+msgid "You should input your last name!"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:63
+msgid "You should input a right email address!"
+msgstr "U dient een geldig e-mail adres in te voeren"
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:72
+msgid "You should input your job description!"
+msgstr ""
+
+#: E:\workspace\narrow\application/admin/views/scripts/user/edit.phtml:92
+msgid "Email already exist!"
+msgstr "E-mail adres bestaat al"
 
 #: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:1
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:1
@@ -163,11 +227,6 @@ msgstr ""
 #: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:40
 msgid "Name"
 msgstr "Naam"
-
-#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:41
-#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:6
-msgid "Email"
-msgstr "E-mail"
 
 #: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:42
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:11
@@ -214,38 +273,23 @@ msgstr "Omzetten Admin"
 msgid "To Default"
 msgstr "Omzetten Standaard"
 
-#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:98
+#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:100
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:76
 msgid "Are you sure you want to reject this user? "
 msgstr "Weet u zeker dat u dit account wilt afkeuren?"
 
-#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:105
+#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:107
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:83
 msgid "Are you sure you want to approve this user? "
 msgstr "Weet u zeker dat u dit account wilt goedkeuren?"
 
-#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:112
+#: E:\workspace\narrow\application/admin/views/scripts/user/index.phtml:114
 #: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:90
 msgid "Are you sure you want to change user's role? "
 msgstr "Weet u zeker dat u de rol wilt wijzigen?"
 
-#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:21
-msgid "First Name"
-msgstr ""
-
-#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:26
-msgid "Last Name"
-msgstr ""
-
-#: E:\workspace\narrow\application/admin/views/scripts/user/view.phtml:32
-msgid "Job Description"
-msgstr ""
-
-#: E:\workspace\narrow\application/views/scripts/index/login.phtml:20
-msgid "E-mail"
-msgstr "E-mail"
-
 #: E:\workspace\narrow\application/views/scripts/index/login.phtml:24
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:18
 msgid "Password"
 msgstr "Wachtwoord"
 
@@ -265,23 +309,23 @@ msgstr ""
 msgid "You should input a message!"
 msgstr ""
 
-#: E:\workspace\narrow\application/views/scripts/index/password.phtml:8
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:9
 msgid "It's your first time Login. you can change your password"
 msgstr "Dit is de eerste keer dat u inlogt. U dient uw wachtwoord te wijzigen"
 
-#: E:\workspace\narrow\application/views/scripts/index/password.phtml:18
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:28
 msgid "Confirm Password"
 msgstr "Bevestig Wachtwoord"
 
-#: E:\workspace\narrow\application/views/scripts/index/password.phtml:24
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:38
 msgid "Modify"
 msgstr "Wijzigen"
 
-#: E:\workspace\narrow\application/views/scripts/index/password.phtml:40
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:54
 msgid "You should input a new password"
 msgstr "U dient een nieuw wachtwoord in te voeren"
 
-#: E:\workspace\narrow\application/views/scripts/index/password.phtml:46
+#: E:\workspace\narrow\application/views/scripts/index/password.phtml:60
 msgid "Password and confirmPassword should be same."
 msgstr "Wachtwoorden moeten overeenkomen"
 
@@ -294,33 +338,12 @@ msgid "Register"
 msgstr "Aanmelden"
 
 #: E:\workspace\narrow\application/views/scripts/index/register.phtml:35
-#: E:\workspace\narrow\application/views/scripts/index/thanks.phtml:7
 msgid "Back"
 msgstr "Terug"
-
-#: E:\workspace\narrow\application/views/scripts/index/register.phtml:51
-msgid "You should input your first name!"
-msgstr ""
-
-#: E:\workspace\narrow\application/views/scripts/index/register.phtml:58
-msgid "You should input your last name!"
-msgstr ""
-
-#: E:\workspace\narrow\application/views/scripts/index/register.phtml:65
-msgid "You should input a right email address!"
-msgstr "U dient een geldig e-mail adres in te voeren"
 
 #: E:\workspace\narrow\application/views/scripts/index/register.phtml:72
 msgid "confirmed email address is not right!"
 msgstr ""
-
-#: E:\workspace\narrow\application/views/scripts/index/register.phtml:81
-msgid "You should input your job description!"
-msgstr ""
-
-#: E:\workspace\narrow\application/views/scripts/index/register.phtml:110
-msgid "Email already exist!"
-msgstr "E-mail adres bestaat al"
 
 #: E:\workspace\narrow\application/configs/narrow.ini:13
 msgid "English"
@@ -381,14 +404,8 @@ msgstr "Nederlands"
 #~ msgid "Please input a title!"
 #~ msgstr "Vul een titel in"
 
-#~ msgid "Article Panel"
-#~ msgstr "Artikel beheer"
-
 #~ msgid "Create"
 #~ msgstr "Toevoegen"
-
-#~ msgid "Title"
-#~ msgstr "Titel"
 
 #~ msgid "Static CMS Edit Panel"
 #~ msgstr "Statische CMS Wijzigen"
