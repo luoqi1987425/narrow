@@ -61,7 +61,7 @@
 				$userName = $user['first_name'] . " " . $user['last_name'];
 				
 				$entry = $feed->createEntry();
-				$entry->setTitle('TV Mundipharma');
+				$entry->setTitle($message['content']);
 				$entry->setLink($currentLink);
 				$entry->addAuthor(array(
 				    'name'  => $userName,
