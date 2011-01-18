@@ -8,6 +8,8 @@
 	    	parent::preDispatch();
 	    	$this->_appendBasicJs();
 	    	$this->_checkAdminPermission();
+	    	
+	    	Narrow_Config_Factory::Factory()->init();
 	    }
 	    
 		private function _appendBasicJs(){

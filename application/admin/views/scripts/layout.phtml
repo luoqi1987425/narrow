@@ -30,6 +30,7 @@ var __BASE_URL__ = '<?php echo $this->baseUrl()?>';
 	  <ul id="sidebar-items">
 	  		<li><a href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'user' , 'module' => 'admin' , 'status' => Narrow_User_Imple::STATUS_WAITING ), null, true);?>"><?php echo $this->_('User')?></a></li>
 	  		<li><a href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'message' , 'module' => 'admin'), null, true);?>"><?php echo $this->_('Message')?></a></li>
+	  		<li><a href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'config' , 'module' => 'admin'), null, true);?>"><?php echo $this->_('Config')?></a></li>
 	  		<li><a href="<?php echo $this->url(array('action' => 'logout' , 'controller' => 'index' , 'module' => 'default'), null, true);?>"><?php echo $this->_('Logout')?></a></li>
 	  </ul>
 	</div>

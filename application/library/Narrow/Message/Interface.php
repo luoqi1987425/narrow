@@ -6,6 +6,8 @@
 		
 		public function delete( $id );
 		
+		public function approve( $id , $flag );
+		
 		public function getsRssOutput( $sign );
 		
 		public function getById( $id );

@@ -67,6 +67,19 @@
 			
 		}
 		
+		public function poststatusAction(){
+			
+			$id 		= $this->_getParam( "id" );
+			$flag		= $this->_getParam( "approve" );
+			
+			$messageMod = Narrow_Message_Factory::Factory();
+			
+			$messageMod->approve( $id , $flag );
+			
+			$this->redirect( 'index' , 'message' , 'admin' );
+			
+		}
+		
 		
 		
 		

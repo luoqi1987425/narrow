@@ -34,7 +34,13 @@ foreach($this->messages as $message ):
 	<td><?php echo date( "Y-m-d" , $message['date_add'] ); ?></td>
 	<td>
 		<a href="javascript:void(0);" onclick="message_edit(<?php echo $message['id']?>);"><?php echo $this->_('Edit');?></a> |
-		<a href="javascript:void(0);" onclick="message_delete(<?php echo $message['id']?>);"> <?php echo $this->_('Delete');?></a>
+		<a href="javascript:void(0);" onclick="message_delete(<?php echo $message['id']?>);"> <?php echo $this->_('Delete');?></a>|
+		
+		<?php if( !$message["approved"] ):?>
+		<a href="javascript:void(0);" onclick="message_approve(<?php echo $message['id']?> , 1);"> <?php echo $this->_('Approve');?></a>
+		<?php else:?>
+		<a href="javascript:void(0);" onclick="message_approve(<?php echo $message['id']?> , 0);"> <?php echo $this->_('Reject');?></a>
+		<?php endif;?>
 	</td>
 </tr>
 <?php
@@ -65,7 +71,9 @@ endforeach;
 		}
 	}
 
-
+	function message_approve( id , flag ){
+		location.href = __BASE_URL__ + "/admin/message/poststatus/id/" + id + "/approve/" + flag;	
+	}
 
 </script>
 

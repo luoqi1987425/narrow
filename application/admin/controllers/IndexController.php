@@ -13,9 +13,10 @@ class Admin_IndexController extends Narrow_ZendX_Controller_Action_Admin
     public function indexAction(){
     	
     	
-    	$this->view->headTitle( $this->_( self::TITLE ) );
-    	$this->render();
+    	
     }
+    
+    
     
     
     

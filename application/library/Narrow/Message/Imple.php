@@ -8,6 +8,16 @@
 			
 			$messageModel->delete( array( "id" => $id ) );
 		}
+	
+	
+		public function approve($id, $flag) {
+			
+			$messageModel = Narrow_Message_Model_Message::getInstance();
+			
+			$messageModel->update(  array( "approved" => $flag ) , array( "id" => $id ) );
+			
+		}
+
 		
 	
 		public function getsRssOutput( $sign ) {
@@ -18,6 +28,8 @@
 			$hour		= intval( Narrow::GetInstance()->config->message->rss_time );
 			$rss_title	= Narrow::GetInstance()->config->message->rss_title;
 			$rss_description	= Narrow::GetInstance()->config->message->rss_description;
+			$need_approved		= Narrow_Config_Factory::Factory()->get( Narrow_Config_Imple::MESSAGE_NEED_APPROVED );
+			
 			
 			if( $right_sign != $sign  ){
 				throw new Exception( $translate->_("sorry you can't get messages, because the signiture is not right") ); 
@@ -28,6 +40,10 @@
 			
 			$conditions = array();
 			$conditions['date_add'] = array( "min" , time() - (3600 * $hour)  );
+			if( $need_approved ){
+				$conditions['approved'] = intval( true );
+			}
+			
 			
 			$order = "date_add DESC";
 			
@@ -103,6 +119,7 @@
 			if(!$id){
 				
 				$data['date_add'] = time();
+				$data['approved'] = intval( false );
 				$messageModel->insert($data);
 			}else{
 				$messageModel->update( $data , array( "id" => $id ) );
