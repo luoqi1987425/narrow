@@ -15,6 +15,9 @@
 			$translate = Zend_Registry::get( 'translate');
 			
 			$right_sign	= Narrow::GetInstance()->config->message->rss_sign;
+			$hour		= intval( Narrow::GetInstance()->config->message->rss_time );
+			$rss_title	= Narrow::GetInstance()->config->message->rss_title;
+			$rss_description	= Narrow::GetInstance()->config->message->rss_description;
 			
 			if( $right_sign != $sign  ){
 				throw new Exception( $translate->_("sorry you can't get messages, because the signiture is not right") ); 
@@ -24,7 +27,7 @@
 			$userMod = Narrow_User_Factory::Factory();
 			
 			$conditions = array();
-			$conditions['date_add'] = array( "min" , time() - (3600 * 24)  );
+			$conditions['date_add'] = array( "min" , time() - (3600 * $hour)  );
 			
 			$order = "date_add DESC";
 			
@@ -39,7 +42,7 @@
 			
 			$feed = new Zend_Feed_Writer_Feed();
 			
-			$feed->setTitle('TV Mundipharma');
+			$feed->setTitle($rss_title);
 			$feed->setLink($currentLink);
 			$feed->setFeedLink($currentLink, 'rss');
 			$feed->addAuthor(array(
@@ -49,7 +52,7 @@
 			));
 			$feed->setDateModified(time());
 			$feed->addHub('http://pubsubhubbub.appspot.com/');
-			$feed->setDescription( "TV Mundipharma" );
+			$feed->setDescription( $rss_description );
 			 
 			/**
 			 * Add one or more entries. Note that entries must
