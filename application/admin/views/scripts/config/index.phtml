@@ -1,0 +1,46 @@
+<h3><?php echo $this->_('Config Panel'); ?></h3>
+<br/><br/>
+
+
+<!-- view status -->
+
+
+
+<br/><br/>
+
+
+
+<table width="100%">
+<tr class="head">
+    <td style="width:300px;"><?php echo $this->_('ConfigName');?></td>
+    <td><?php echo $this->_('Action');?></td>
+</tr>
+
+
+<tr>
+	<td><?php echo $this->_('Message Need To Be approved'); ?></td>
+	<td>
+		<?php if( !$this->message_need_approved ):?>
+		<a href="javascript:void(0);" onclick="post_config(<?php echo Narrow_Config_Imple::MESSAGE_NEED_APPROVED?> , 1);"> <?php echo $this->_('Need');?></a>
+		<?php else:?>
+		<a href="javascript:void(0);" onclick="post_config(<?php echo Narrow_Config_Imple::MESSAGE_NEED_APPROVED?> , 0);"> <?php echo $this->_('No Need');?></a>
+		<?php endif;?>
+	</td>
+</tr>
+
+<tr>
+	<td colspan='2'>&nbsp;</td>
+</tr>
+</table>
+
+
+
+<script>
+
+
+	function post_config( id , flag ){
+		location.href = __BASE_URL__ + "/admin/config/postconfig/config/" + id + "/value/" + flag;	
+	}
+
+</script>
+
