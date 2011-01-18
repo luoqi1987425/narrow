@@ -6,6 +6,29 @@
 
 
 
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'message' , 'module' => 'admin' , 'status' => 'all' ), null, true);?>" title="all" 
+<?php if( $this->status != null && $this->status   == 'all' ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_('All'); ?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'message' , 'module' => 'admin' , 'status' => 'approved' ), null, true);?>" title="all" 
+<?php if( $this->status  == 'approved' ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Approved")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a 
+href="<?php echo $this->url(array('action' => 'index' , 'controller' => 'message' , 'module' => 'admin' , 'status' => 'rejected' ), null, true);?>" title="all" 
+<?php if( $this->status  == 'rejected' ):?>
+	class = 'current' 
+<?php endif;?>
+><strong><?php echo $this->_("Rejected")?></strong></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
 <br/><br/>
 
 <?php if( count( $this->messages ) == 0 ):?>

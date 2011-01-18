@@ -9,10 +9,24 @@
 			
 			$pageSize = 10;
 			$pageNo	  = $this->paginationNo();
+			$status	  = $this->_getParam( 'status' );
+			if( !$status ){
+				$status = 'all';
+			}
 			
 			$messageMod = Narrow_Message_Factory::Factory();
 			
-			$messages = $messageMod->gets( array() , "date_add DESC" , $pageNo , $pageSize );
+			if( $status == 'approved' ){
+				$conditions = array();
+				$conditions['approved'] = intval( true );
+			}elseif( $status == 'rejected' ){
+				$conditions = array();
+				$conditions['approved'] = intval( false );
+			}else{
+				$conditions = array();
+			}
+			
+			$messages = $messageMod->gets( $conditions , "date_add DESC" , $pageNo , $pageSize );
 			$count	  = $messageMod->getsCount( array() );
 
 			$paginationHTML = $this->pagination( $count , $pageSize );
@@ -24,6 +38,7 @@
 			
 			$this->assign( 'paginationHTML' , $paginationHTML );
 			$this->assign( 'messages' , $messages );
+			$this->assign( "status" , $status );
 	    	$this->view->headTitle( $this->_( self::TITLE ) );
 		}
 		
