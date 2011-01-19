@@ -100,10 +100,13 @@
 		
 		private function _generateMessageForAdminContent( $content ){
 			
-			$rtn = 'Administrator <br/><br/>
-						You have a message waitting for approval<br/>
-						'.$content.'
-						TV Mundipharma';
+			$rtn = 'Mundipharma Administrator,
+					<br/><br/>
+					You have a message waitting for approval:
+					<br/><br/>
+					'.$content.' TV Mundipharma
+					<br/><br/>
+					You can approve this message here: <a href="http://tv.mundipharma.nl/admin/message">http://tv.mundipharma.nl/admin/message</a>';
 			
 			return $rtn;
 			
