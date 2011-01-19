@@ -17,6 +17,11 @@
 	
 		public function afterUserApprove($data) {
 		}
+	
+	
+		public function afterMessageSave($data) {
+		}
+
 
 
 		

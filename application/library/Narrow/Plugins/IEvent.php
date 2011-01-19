@@ -28,5 +28,8 @@
 		 */
 		public function afterUserRole( $data );
 		
+		
+		public function afterMessageSave( $data );
+		
 	}
 ?>

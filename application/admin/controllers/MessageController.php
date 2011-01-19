@@ -18,16 +18,17 @@
 			
 			if( $status == 'approved' ){
 				$conditions = array();
-				$conditions['approved'] = intval( true );
+				$conditions['approved'] = Narrow_Message_Imple::STATUS_APPROVED;
 			}elseif( $status == 'rejected' ){
 				$conditions = array();
-				$conditions['approved'] = intval( false );
+				$conditions['approved'] = Narrow_Message_Imple::STATUS_REJECTED;
 			}else{
 				$conditions = array();
+				$conditions['approved'] = Narrow_Message_Imple::STATUS_WAITTING;
 			}
 			
 			$messages = $messageMod->gets( $conditions , "date_add DESC" , $pageNo , $pageSize );
-			$count	  = $messageMod->getsCount( array() );
+			$count	  = $messageMod->getsCount( $conditions );
 
 			$paginationHTML = $this->pagination( $count , $pageSize );
 			

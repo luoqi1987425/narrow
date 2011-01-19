@@ -8,6 +8,8 @@
 		
 		public function approve( $email , $name , $code );
 		
+		public function messageForAdmin( $content );
+		
 		
 	}
 ?>

@@ -64,6 +64,14 @@
 			}
 			
 		}
+	
+	
+		public function afterMessageSave($data) {
+			foreach( $this->_plugins as $plugin ){
+				$plugin->afterMessageSave( $data );
+			}
+		}
+
 
 		
 		

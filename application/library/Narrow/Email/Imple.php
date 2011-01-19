@@ -32,6 +32,18 @@
 			}
 			
 		}
+	
+	
+		public function messageForAdmin($content) {
+			
+			$title = "TV Mundipharma";
+			$content = $this->_generateMessageForAdminContent( $content );
+			$email   = Narrow::GetInstance()->config->email->message_email;
+		
+			$this->_send( $email ,$title , $content );
+			
+		}
+
 		
 		private function _generateRegisterContent( $name ){
 			
@@ -86,6 +98,17 @@
 			
 		}
 		
+		private function _generateMessageForAdminContent( $content ){
+			
+			$rtn = 'Administrator <br/><br/>
+						You have a message waitting for approval<br/>
+						'.$content.'
+						TV Mundipharma';
+			
+			return $rtn;
+			
+		}
+		
 		private function _send( $to , $title , $message ){
 			
 			$headers = "MIME-Version: 1.0" . "\r\n";
@@ -99,6 +122,8 @@
 					$headers );
 			
 		}
+		
+		
 
 
 		

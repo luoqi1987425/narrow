@@ -28,6 +28,21 @@
 		
 		
 		
+		public function afterMessageSave($data) {
+			
+			$emailMod = Narrow_Email_Factory::Factory();
+			if( $data['approved'] == Narrow_Message_Imple::STATUS_WAITTING ){
+				
+				$emailMod->messageForAdmin( $data['content'] );
+				
+			}
+			
+		}
+		
+		
+		
+		
+		
 		
 		
 	}

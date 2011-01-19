@@ -1,6 +1,20 @@
 <?php 
 	class Narrow_Message_Imple implements Narrow_Message_Interface {
 	
+		
+		const STATUS_WAITTING = '1';
+		const STATUS_APPROVED = '2';
+		const STATUS_REJECTED = '3';
+		
+		
+		private $_plugin_datas;
+		
+		function __construct(){
+			
+			$this->_plugin_datas = array();
+			
+		}
+		
 	
 		public function delete($id) {
 			
@@ -10,11 +24,10 @@
 		}
 	
 	
-		public function approve($id, $flag) {
+		public function approve($id, $status) {
 			
 			$messageModel = Narrow_Message_Model_Message::getInstance();
-			
-			$messageModel->update(  array( "approved" => $flag ) , array( "id" => $id ) );
+			$messageModel->update(  array( "approved" => $status ) , array( "id" => $id ) );
 			
 		}
 
@@ -28,7 +41,6 @@
 			$hour		= intval( Narrow::GetInstance()->config->message->rss_time );
 			$rss_title	= Narrow::GetInstance()->config->message->rss_title;
 			$rss_description	= Narrow::GetInstance()->config->message->rss_description;
-			$need_approved		= Narrow_Config_Factory::Factory()->get( Narrow_Config_Imple::MESSAGE_NEED_APPROVED );
 			
 			
 			if( $right_sign != $sign  ){
@@ -40,10 +52,7 @@
 			
 			$conditions = array();
 			$conditions['date_add'] = array( "min" , time() - (3600 * $hour)  );
-			if( $need_approved ){
-				$conditions['approved'] = intval( true );
-			}
-			
+			$conditions['approved'] = Narrow_Message_Imple::STATUS_APPROVED;
 			
 			$order = "date_add DESC";
 			
@@ -111,21 +120,13 @@
 		
 		public function save( $data ) {
 			
-			$messageModel = Narrow_Message_Model_Message::getInstance();
+			$broker = Narrow_Plugins_Broker::GetInstance();
 			
-			$id = $data['id'];
-			unset($data['id']);
+			$rtn = $this->_save($data);
+			$broker->afterMessageSave($this->_plugin_datas);
+			$this->_resetPluginData();
 			
-			if(!$id){
-				
-				$data['date_add'] = time();
-				$data['approved'] = intval( false );
-				$messageModel->insert($data);
-			}else{
-				$messageModel->update( $data , array( "id" => $id ) );
-			}
-			
-			return $id;
+			return $rtn;
 			
 		}
 	
@@ -160,8 +161,51 @@
 		
 		public function getsCount( $conditons = null ){
 			
-			$userModel = Narrow_User_Model_User::getInstance();
+			$userModel = Narrow_Message_Model_Message::getInstance();
 			return $userModel->where( $conditons )->count();
+		}
+		
+		private function _resetPluginData(){
+			
+			$this->_plugin_datas = array();
+			
+		}
+		
+		private function _save( $data ){
+			
+			$messageModel = Narrow_Message_Model_Message::getInstance();
+			$configModel  = Narrow_Config_Factory::Factory();
+			$needApproved = $configModel->get( Narrow_Config_Imple::MESSAGE_NEED_APPROVED );
+			
+			
+			$id = $data['id'];
+			unset($data['id']);
+			
+			if(!$id){
+				
+				
+				//get default status
+				
+				
+				$data['date_add'] = time();
+				if( $needApproved ){
+					$data['approved'] = Narrow_Message_Imple::STATUS_WAITTING;
+				}else{
+					$data['approved'] = Narrow_Message_Imple::STATUS_APPROVED;
+				}
+				
+				$messageModel->insert($data);
+			}else{
+				$messageModel->update( $data , array( "id" => $id ) );
+			}
+			
+			
+			//
+			$this->_plugin_datas['approved'] = $data['approved'];
+			$this->_plugin_datas['content']  = $data['content'];
+			
+			return $id;
+			
 		}
 		
 		
